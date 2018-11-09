@@ -20,29 +20,17 @@ h2{
   color: white;
 }
 
-h3{
-  font-family: 'Open Sans', sans-serif;
-  color: white;
-  display: none;
-}
-
-.bold{
-  font-family: 'Baloo Tamma', cursive;
-  font-size: 3em;
-  font-weight:400;
-}
-
 @media only screen and (max-width: 600px) {
-  h1, h2{
-    display:none;
+  h1{
+    font-size: 2em;
   }
 
-  h3{
-      display: block;
+  h2{
+    font-size: 1.6em;
   }
 
   .top{
-    height:20vh;
+    height:40vh;
   }
 }
 /** Fonts (https://fonts.googleapis.com/css?family=Baloo+Tamma|Open+Sans:300) */
