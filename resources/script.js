@@ -13,6 +13,7 @@ if(screen.width > 600){
   .type("&#65372;A simple URL shortener")
   .pause(1000)
   .delete(22)
+  .pause(100)
   .type("Coming soon");
 } else {
   new TypeIt('#typeit', {
@@ -24,5 +25,6 @@ if(screen.width > 600){
   .type("&#65372;URL shortener")
   .pause(1000)
   .delete(13)
+  .pause(100)
   .type("Coming soon");
 }
