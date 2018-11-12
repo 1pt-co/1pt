@@ -4,8 +4,12 @@ permalink: /404.html
 <script src="redirect.js"></script>
 <script>
 function redirect(old_url){
-  var new_url = REDIRECTS[old_url];
-  window.location = new_url;
+  if(REDIRECTS[old_url] !== undefined){
+    var new_url = REDIRECTS[old_url];
+    window.location = new_url;
+  } else {
+    document.getElementById("error").style.visibility = "visible";
+  }
 }
 
 window.onload = function(){
@@ -13,3 +17,6 @@ window.onload = function(){
   redirect(url);
 }
 </script>
+
+<h1>Error 404</h1>
+<p>That page doesn't exist. <a href="https://1pt.co">Go to home page</a></p>
