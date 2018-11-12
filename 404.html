@@ -1,0 +1,15 @@
+---
+permalink: /404.html
+---
+
+<script>
+function redirect(old_url){
+  var new_url = REDIRECTS[old_url];
+  window.location.href = new_url;
+}
+
+window.onload = function(){
+  var url = window.location.href.split('1pt.co/')[1];
+  redirect(url);
+}
+</script>
