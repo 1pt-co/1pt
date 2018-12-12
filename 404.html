@@ -9,7 +9,7 @@ permalink: /404.html
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 
-      if(this.responseText = "0 results"){
+      if(this.responseText = "error"){
         document.getElementById("error").style.visibility = "visible";)
       } else {
         window.location.href = this.responseText;
