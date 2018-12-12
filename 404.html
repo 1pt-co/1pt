@@ -8,8 +8,7 @@ window.onload = function(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-
-      if(this.responseText = "error"){
+      if(this.responseText === "error"){
         document.getElementById("error").style.visibility = "visible";
         console.log(this.responseText);
       } else {
@@ -18,7 +17,6 @@ window.onload = function(){
       }
     } else {
       document.getElementById("error").style.visibility = "visible";
-      console.log(this.responseText);
     }
   };
   xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/retrieve-url-from-db.php?url=" + url, true);
