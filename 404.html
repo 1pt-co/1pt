@@ -11,9 +11,9 @@ permalink: /404.html
       window.location.href = this.responseText;
       console.log(this.responseText);
     } else if(this.responseText = "0 results"){
-      document.getElementById("error").visibility = "visible";
+      document.getElementById("error").style.visibility = "visible";
     } else {
-      document.getElementById("error").visibility = "visible";
+      document.getElementById("error").style.visibility = "visible";
     }
   };
   xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/retrieve-url-from-db.php?url=" + url, true);
