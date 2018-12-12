@@ -11,12 +11,14 @@ window.onload = function(){
 
       if(this.responseText = "error"){
         document.getElementById("error").style.visibility = "visible";
+        console.log(this.responseText);
       } else {
         window.location.href = this.responseText;
         console.log(this.responseText);
       }
     } else {
       document.getElementById("error").style.visibility = "visible";
+      console.log(this.responseText);
     }
   };
   xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/retrieve-url-from-db.php?url=" + url, true);
