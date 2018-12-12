@@ -8,10 +8,13 @@ permalink: /404.html
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      window.location.href = this.responseText;
-      console.log(this.responseText);
-    } else if(this.responseText = "0 results"){
-      document.getElementById("error").style.visibility = "visible";
+
+      if(this.responseText = "0 results"){
+        document.getElementById("error").style.visibility = "visible";)
+      } else {
+        window.location.href = this.responseText;
+        console.log(this.responseText);
+      }
     } else {
       document.getElementById("error").style.visibility = "visible";
     }
