@@ -1,20 +1,17 @@
 ---
 permalink: /404.html
 ---
-<script src="//1pt.co/redirect.js"></script>
+<script></script>
 <script>
-function redirect(old_url){
-  if(REDIRECTS[old_url] !== undefined){
-    var new_url = REDIRECTS[old_url];
-    window.location = new_url;
-  } else {
-    document.getElementById("error").style.visibility = "visible";
-  }
-}
 
 window.onload = function(){
   var url = window.location.href.split('1pt.co/')[1];
-  redirect(url);
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      window.location = this.responseText;
+    }
+  };
 }
 </script>
 
