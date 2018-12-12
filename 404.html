@@ -3,7 +3,7 @@ permalink: /404.html
 ---
 
 <script>
-
+window.onload = function(){
   var url = window.location.href.split('1pt.co/')[1];
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -21,6 +21,8 @@ permalink: /404.html
   };
   xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/retrieve-url-from-db.php?url=" + url, true);
   xhttp.send();
+}
+
 
 </script>
 
