@@ -3,6 +3,8 @@
   <head>
     <title>1 Point</title>
     <link href="resources/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon -->
@@ -19,7 +21,55 @@
 
   <body>
     <div class="top"></div>
-    <h1>1 Point</h1> <h2 id="typeit"></h2>
+
+    <div id="title">
+      <h1>1 Point</h1>
+      <h2 id="typeit"></h2>
+    </div>
+
+    <br><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus onchange="removeSpaces(); showButton();" onkeypress="this.onchange()" onpaste="this.onchange()" oninput="this.onchange()" id="url" type="text" placeholder="paste long url here">
+    <input onclick="submit(document.getElementById('url').value)" id="btn" class="btn" type="button" value="Go"></input>
+    <input id="short-url" value="processing..." disabled></input>
+    <span id="arrow"><i class="fas fa-angle-down"></i></span>
+
+    <div id="fade"></div>
+    <div id="fade2"></div>
+    <div id="fade3"></div>
+
+    <div id="customize">
+      <h1><i class="fas fa-qrcode"></i> QR Code</h1><br>
+      <p><h3><a id="qr-code-link" target="_blank"><img id="qr-code" alt="QR Code"></a></h3></p>
+
+      <h1><i class="fas fa-external-link-alt"></i> Dynamic Links</h1><br>
+      <p>By default, [short-link] will redirect to [long-link], but you can set up special instances where [short-link] will redirect to a different URL. This is especially useful if for example you had an app on multiple platforms and you wanted to redirect the user based on which device they're using. </p>
+
+      <table>
+        <tr>
+          <td style="width:20%;"><h3>Desktop</h3></td>
+          <td style="width:80%;"><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="desktop" type="text" placeholder="special redirect for desktop users"></td>
+        </tr>
+
+        <tr>
+          <td><h3>Mobile</h3></td>
+          <td><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="mobile" type="text" placeholder="catch-all redirect for mobile users if the specific user agent is unidentifiable"></td>
+        </tr>
+
+        <tr>
+          <td><h3>Apple</h3></td>
+          <td><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="apple" type="text" placeholder="special redirect for mobile apple users (like iphone/ipad)"></td>
+        </tr>
+
+        <tr>
+          <td><h3>Android</h3></td>
+          <td><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="android" type="text" placeholder="special redirect for android users"></td>
+        </tr>
+      </table>
+
+      <h1><i class="fas fa-link"></i> Custom Link</h1><br>
+      <p id="custom-url-desc">Instead of the default, you can claim a custom short URL like https://1pt.co/example instead.</p>
+      <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="custom" type="text" onchange="appendURL(this);" onkeypress="this.onchange()" onpaste="this.onchange()" oninput="this.onchange()" placeholder="https://1pt.co/">
+    </div>
+
     <script src="resources/script.js"></script>
   </body>
 </html>
