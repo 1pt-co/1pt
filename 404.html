@@ -10,6 +10,8 @@ permalink: /404.html
     if (this.readyState == 4 && this.status == 200) {
       window.location.href = this.responseText;
       console.log(this.responseText);
+    } else if(this.responseText = "0 results"){
+      document.getElementById("error").visibility = "visible";
     } else {
       document.getElementById("error").visibility = "visible";
     }
