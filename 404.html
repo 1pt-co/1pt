@@ -3,17 +3,18 @@ permalink: /404.html
 ---
 
 <script>
-function redirectToLongUrl(url){
-  if(url.includes('http://' || 'https://')){
-    window.location = url;
-  } else {
-    var protocol = 'http://';
-    var fullURL = protocol.concat(url);
-    window.location = fullURL;
-  }
-}
 
 window.onload = function(){
+  function redirectToLongUrl(url){
+    if(url.includes('http://' || 'https://')){
+      window.location = url;
+    } else {
+      var protocol = 'http://';
+      var fullURL = protocol.concat(url);
+      window.location = fullURL;
+    }
+  }
+  
   var url = window.location.href.split('1pt.co/')[1];
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
