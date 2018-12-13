@@ -59,26 +59,32 @@ var url = document.getElementById("url").value;
 
 function submit(url){
   //alert(encodeURI(url));
+  var pattern = new RegExp(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g);
+  var isURL = pattern.test(url);
 
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      link = "https://1pt.co/" + this.responseText;
-      document.getElementById("short-url").value = link.slice(8);
-      document.getElementById("qr-code-link").href = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + link;
-      document.getElementById("qr-code").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + link;
-    }
-  };
-  xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" + document.getElementById("url").value, true);
-  xhttp.send();
+  if(isURL){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        link = "https://1pt.co/" + this.responseText;
+        document.getElementById("short-url").value = link.slice(8);
+        document.getElementById("qr-code-link").href = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + link;
+        document.getElementById("qr-code").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + link;
+      }
+    };
+    xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" + document.getElementById("url").value, true);
+    xhttp.send();
 
-  document.getElementById("url").classList = "animated bounceOutLeft";
-  document.getElementById("btn").classList = "btn animated bounceOutLeft";
+    document.getElementById("url").classList = "animated bounceOutLeft";
+    document.getElementById("btn").classList = "btn animated bounceOutLeft";
 
-  document.getElementById("short-url").style.display = "inline-block";
-  document.getElementById("short-url").classList = "animated delay-500 bounceInRight";
-  window.setTimeout(function(){document.getElementById("arrow").style.visibility = "visible"; document.getElementById("customize").style.display = "block";}, 1500);
-  document.getElementById("arrow").classList = "animated delay-1500 bounce";
+    document.getElementById("short-url").style.display = "inline-block";
+    document.getElementById("short-url").classList = "animated delay-500 bounceInRight";
+    window.setTimeout(function(){document.getElementById("arrow").style.visibility = "visible"; document.getElementById("customize").style.display = "block";}, 1500);
+    document.getElementById("arrow").classList = "animated delay-1500 bounce";
+  } else {
+    alert('You must enter a valid URL');
+  }
 }
 
 window.addEventListener("scroll", function(){
