@@ -69,6 +69,17 @@ input{
   border-radius:6px;
 }
 
+.error{
+  opacity: 0;
+  position: fixed;
+  top: 0px;
+  background-color: #ea0000;
+  padding: 10px;
+  border-radius: 10px;
+  transition: opacity 0.25s;
+  font-size: 2em;
+}
+
 .btn{
   width: 0;
   background-color: #424242;

@@ -27,7 +27,10 @@
       <h2 id="typeit"></h2>
     </div>
 
-    <br><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus onchange="removeSpaces(); showButton();" onkeypress="this.onchange()" onpaste="this.onchange()" oninput="this.onchange()" id="url" type="text" placeholder="paste long url here">
+    <br><input  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus onchange="removeSpaces(); showButton();" onkeypress="this.onchange()" onpaste="this.onchange()" oninput="this.onchange()" id="url" type="text" placeholder="paste long url here">
+
+    <h3 class="error" id="error"><i class="fas fa-exclamation-circle"></i> You must enter a valid URL!</h3>
+
     <input onclick="submit(document.getElementById('url').value)" id="btn" class="btn" type="button" value="Go"></input>
     <input id="short-url" value="processing..." disabled></input>
     <span id="arrow"><i class="fas fa-angle-down"></i></span>

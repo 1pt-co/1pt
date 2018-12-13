@@ -24,6 +24,15 @@ if(screen.width > 1350){
   .type("Dynamic Linking");
 }
 
+function positionError(){
+  var error = document.getElementById("error");
+  var left = (window.innerWidth - error.offsetWidth)/2;
+  error.style.left = left + "px";
+}
+
+window.onload = function(){positionError()}
+window.onresize = function(){positionError()}
+
 function removeSpaces(url){
   var url = document.getElementById("url");
   url.value = url.value.replace(/ /g, "");
@@ -75,15 +84,24 @@ function submit(url){
     xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" + document.getElementById("url").value, true);
     xhttp.send();
 
-    document.getElementById("url").classList = "animated bounceOutLeft";
-    document.getElementById("btn").classList = "btn animated bounceOutLeft";
+    txt.classList = "animated bounceOutLeft";
+    btn.classList = "btn animated bounceOutLeft";
 
     document.getElementById("short-url").style.display = "inline-block";
     document.getElementById("short-url").classList = "animated delay-500 bounceInRight";
     window.setTimeout(function(){document.getElementById("arrow").style.visibility = "visible"; document.getElementById("customize").style.display = "block";}, 1500);
     document.getElementById("arrow").classList = "animated delay-1500 bounce";
   } else {
-    alert('You must enter a valid URL');
+    txt.value = "";
+    showButton();
+    // txt.classList = "animated shake";
+    // btn.classList = "btn animated shake";
+    document.getElementById("error").style.opacity = "1";
+    document.getElementById("error").classList = "error animated shake";
+    window.setTimeout(function(){
+      document.getElementById("error").style.opacity = "0";
+      document.getElementById("error").classList = "error";
+    }, 3000)
   }
 }
 
