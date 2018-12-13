@@ -3,6 +3,16 @@ permalink: /404.html
 ---
 
 <script>
+redirectToLongUrl(url){
+  if(url.includes('http://' || 'https://')){
+    window.location = url;
+  } else {
+    var protocol = 'http://';
+    var fullURL = protocol.concat(url);
+    window.location = fullURL;
+  }
+}
+
 window.onload = function(){
   var url = window.location.href.split('1pt.co/')[1];
   var xhttp = new XMLHttpRequest();
@@ -12,7 +22,7 @@ window.onload = function(){
         document.getElementById("error").style.visibility = "visible";
         console.log(this.responseText);
       } else {
-        window.location = this.responseText;
+        redirectToLongUrl(this.responseText);
         console.log(this.responseText);
       }
     } else {
