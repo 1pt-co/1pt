@@ -8,14 +8,13 @@ window.onload = function(){
   var url = window.location.href.split('1pt.co/')[1];
 
   function redirectToLongUrl(url){
-    if(url.includes('http://' || 'https://')){
+    if(url.includes('https://') || url.includes('http://')){
       window.location = url;
     } else {
       var protocol = 'http://';
       var fullURL = protocol.concat(url);
       window.location = fullURL;
     }
-    console.log(url);
   }
 
 
