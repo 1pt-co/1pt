@@ -5,6 +5,8 @@ permalink: /404.html
 <script>
 
 window.onload = function(){
+  var url = window.location.href.split('1pt.co/')[1];
+
   function redirectToLongUrl(url){
     if(url.includes('http://' || 'https://')){
       window.location = url;
@@ -13,9 +15,10 @@ window.onload = function(){
       var fullURL = protocol.concat(url);
       window.location = fullURL;
     }
+    console.log(url);
   }
-  
-  var url = window.location.href.split('1pt.co/')[1];
+
+
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
