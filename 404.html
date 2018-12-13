@@ -28,8 +28,6 @@ window.onload = function(){
         redirectToLongUrl(this.responseText);
         console.log(this.responseText);
       }
-    } else {
-      document.getElementById("error").style.visibility = "visible";
     }
   };
   xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/retrieve-url-from-db.php?url=" + url, true);
