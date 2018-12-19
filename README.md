@@ -1,2 +1,2 @@
 # 1pt | Link shortener
-[Visit Site](www.1pt.co)
+[Visit Site](https://www.1pt.co)
