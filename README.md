@@ -1,4 +1,4 @@
-# <img align="center" width="75" src="https://raw.githubusercontent.com/paramt/1pt/master/resources/favicon/android-chrome-512x512.png">  [Link shortener](https://www.1pt.co)
+# <img align="center" width="50" src="https://raw.githubusercontent.com/paramt/1pt/master/resources/favicon/android-chrome-512x512.png">  [Link shortener](https://www.1pt.co)
 
 1pt is currently a standard URL shortener, but soon it will be like no other URL shortener out there. Currently, users can input a long URL like ```https://www.param.me/projects``` and expect a shortened URL like ```www.1pt.co/5dy7``` that points to said long URL.
 
