@@ -127,7 +127,6 @@ input{
   width: 93vw;
   text-align: left;
   padding: 1.5vw;
-  display: none;
 }
 
 #customize input {
@@ -140,6 +139,10 @@ input{
 #customize input::placeholder {
     color: #424242;
     opacity: 1; /* Firefox */
+}
+
+#qr-code-section{
+  display: none;
 }
 
 img{
@@ -178,9 +181,11 @@ input::-ms-input-placeholder { /* Microsoft Edge */
   h1{
     font-size: 2em;
   }
+
   h2{
     font-size: 1.6em;
   }
+
   .top{
     height:40vh;
   }
@@ -214,7 +219,6 @@ input::-ms-input-placeholder { /* Microsoft Edge */
     font-weight: 400;
     font-style:italic;
 }
-
 
 .ti-cursor{
   visibility: hidden;

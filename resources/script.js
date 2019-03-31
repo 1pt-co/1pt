@@ -30,7 +30,14 @@ function positionError(){
   error.style.left = left + "px";
 }
 
-window.onload = function(){positionError()}
+window.onload = function(){
+  positionError()
+  window.setTimeout(function(){
+    document.getElementById("arrow").style.visibility = "visible";
+      document.getElementById("arrow").classList = "animated bounce";
+  }, 2500);
+
+}
 window.onresize = function(){positionError()}
 
 function removeSpaces(url){
@@ -43,10 +50,6 @@ var txt = document.getElementById("url");
 var btn = document.getElementById("btn");
 
 function showButton(){
-
-  var txt = document.getElementById("url");
-  var btn = document.getElementById("btn");
-
   if(buttonShown == true && txt.value == ""){
     txt.style.width = "80vw";
     btn.style.width = "0px";
@@ -81,7 +84,7 @@ function submit(url){
         document.getElementById("qr-code").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + link;
       }
     };
-    xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" + document.getElementById("url").value, true);
+    xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" + txt.value + "&de=" + document.getElementById("desktop").value + "&mo=" + document.getElementById("mobile").value + "&ap=" + document.getElementById("apple").value + "&an=" + document.getElementById("android").value + "&cu=" + document.getElementById("custom").value, true);
     xhttp.send();
 
     txt.classList = "animated bounceOutLeft";
@@ -89,13 +92,11 @@ function submit(url){
 
     document.getElementById("short-url").style.display = "inline-block";
     document.getElementById("short-url").classList = "animated delay-500 bounceInRight";
-    window.setTimeout(function(){document.getElementById("arrow").style.visibility = "visible"; document.getElementById("customize").style.display = "block";}, 1500);
-    document.getElementById("arrow").classList = "animated delay-1500 bounce";
+    document.getElementById("qr-code-section").style.display = "block";
+    document.getElementById("settings-section").style.display = "none";
   } else {
     txt.value = "";
     showButton();
-    // txt.classList = "animated shake";
-    // btn.classList = "btn animated shake";
     document.getElementById("error").style.opacity = "1";
     document.getElementById("error").classList = "error animated shake";
     window.setTimeout(function(){

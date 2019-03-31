@@ -40,37 +40,42 @@
     <div id="fade3"></div>
 
     <div id="customize">
-      <h1><i class="fas fa-qrcode"></i> QR Code</h1><br>
-      <p><h3><a id="qr-code-link" target="_blank"><img id="qr-code" alt="QR Code"></a></h3></p>
+      <div id="qr-code-section">
+        <h1><i class="fas fa-qrcode"></i> QR Code</h1><br>
+        <p><h3><a id="qr-code-link" target="_blank"><img id="qr-code" alt="QR Code"></a></h3></p>
+      </div>
 
-      <h1><i class="fas fa-external-link-alt"></i> Dynamic Links</h1><br>
-      <p>By default, [short-link] will redirect to [long-link], but you can set up special instances where [short-link] will redirect to a different URL. This is especially useful if for example you had an app on multiple platforms and you wanted to redirect the user based on which device they're using. </p>
+      <div id="settings-section">
+        <h1><i class="fas fa-external-link-alt"></i> Dynamic Links</h1><br>
+        <p>By default, the generated short URL will redirect to the main URL you provide above, but you can set up special instances where the generated URL will redirect to a different URL. For example, if you have an app on multiple platforms you might want to redirect the user to different URLs based on which device they're on. </p>
 
-      <table>
-        <tr>
-          <td style="width:20%;"><h3>Desktop</h3></td>
-          <td style="width:80%;"><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="desktop" type="text" placeholder="special redirect for desktop users"></td>
-        </tr>
+        <table>
+          <tr>
+            <td style="width:20%;"><h3>Desktop</h3></td>
+            <td style="width:80%;"><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="desktop" type="text" placeholder="special redirect for desktop users"></td>
+          </tr>
 
-        <tr>
-          <td><h3>Mobile</h3></td>
-          <td><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="mobile" type="text" placeholder="catch-all redirect for mobile users if the specific user agent is unidentifiable"></td>
-        </tr>
+          <tr>
+            <td><h3>Mobile</h3></td>
+            <td><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="mobile" type="text" placeholder="catch-all redirect for mobile users if the specific user agent is unidentifiable"></td>
+          </tr>
 
-        <tr>
-          <td><h3>Apple</h3></td>
-          <td><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="apple" type="text" placeholder="special redirect for mobile apple users (like iphone/ipad)"></td>
-        </tr>
+          <tr>
+            <td><h3>Apple</h3></td>
+            <td><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="apple" type="text" placeholder="special redirect for mobile apple users (like iphone/ipad)"></td>
+          </tr>
 
-        <tr>
-          <td><h3>Android</h3></td>
-          <td><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="android" type="text" placeholder="special redirect for android users"></td>
-        </tr>
-      </table>
+          <tr>
+            <td><h3>Android</h3></td>
+            <td><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="android" type="text" placeholder="special redirect for android users"></td>
+          </tr>
+        </table>
 
-      <h1><i class="fas fa-link"></i> Custom Link</h1><br>
-      <p id="custom-url-desc">Instead of the default, you can claim a custom short URL like https://1pt.co/example instead.</p>
-      <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="custom" type="text" onchange="appendURL(this);" onkeypress="this.onchange()" onpaste="this.onchange()" oninput="this.onchange()" placeholder="https://1pt.co/">
+        <h1><i class="fas fa-link"></i> Custom Link</h1><br>
+        <p id="custom-url-desc">Instead of a using a random URL, you can request a custom short URL like <b>1pt.co/custom</b>, if it isn't taken already.</p>
+        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="custom" type="text" onchange="appendURL(this);" onkeypress="this.onchange()" onpaste="this.onchange()" oninput="this.onchange()" placeholder="https://1pt.co/">
+      </div>
+
     </div>
 
     <script src="resources/script.js"></script>
