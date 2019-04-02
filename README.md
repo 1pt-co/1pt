@@ -6,8 +6,9 @@
 ## API
 The endpoint at ```api.1pt.co/``` is free to use but does not support HTTPS. You can make a request using these `GET` variables
 
-| `url`       | Required | The long URL to shorten                        |
+| Variable    | Required? | Description |
 | ----------: | :------: | ---------------------------------------------- |
+| `url`       | Required | The long URL to shorten                        |
 | `custom`    | Optional | Request a custom short URL                     |
 | `desktop`   | Optional | Specific redirect for all desktop devices      |
 | `apple`     | Optional | Specific redirect for all iOS devices          |
