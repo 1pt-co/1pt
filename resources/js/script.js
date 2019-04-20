@@ -1,48 +1,47 @@
-if(screen.width > 1350){
-  new TypeIt('#typeit', {
-    speed: 75,
-    breakLines: false,
-    autoStart: false
-  })
-  .type(" &#124; Dynamic URL Shortener")
-} else {
-  new TypeIt('#typeit', {
-    speed: 60,
-    breakLines: false,
-    autoStart: false
-  })
-  .pause(300)
-  .type(" &#124; URL Shortener")
-  .pause(1000)
-  .delete(13)
-  .pause(100)
-  .type("Dynamic Linking");
-}
-
-function positionError(){
-  var error = document.getElementById("error");
-  var left = (window.innerWidth - error.offsetWidth)/2;
-  error.style.left = left + "px";
-}
-
 window.onload = function(){
+  if(screen.width > 1350){
+    new TypeIt('#typeit', {
+      speed: 75,
+      breakLines: false,
+      autoStart: false
+    })
+    .type(" &#124; Dynamic URL Shortener")
+  } else {
+    new TypeIt('#typeit', {
+      speed: 60,
+      breakLines: false,
+      autoStart: false
+    })
+    .pause(300)
+    .type(" &#124; URL Shortener")
+    .pause(1000)
+    .delete(13)
+    .pause(100)
+    .type("Dynamic Linking");
+  }
+
   positionError()
   window.setTimeout(function(){
     document.getElementById("arrow").style.visibility = "visible";
       document.getElementById("arrow").classList = "animated bounce";
   }, 2500);
 
+  txt = document.getElementById("url");
+  btn = document.getElementById("btn");
+  
+  // click GO button if user presses ENTER key
+  txt.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13 && txt.style.width === "70vw") {
+      btn.click();
+    }
+  });
 }
-window.onresize = function(){positionError()}
 
-function removeSpaces(url){
-  var url = document.getElementById("url");
-  url.value = url.value.replace(/ /g, "");
-}
+var buttonShown = false
+var txt;
+var btn;
 
-var buttonShown = false;
-var txt = document.getElementById("url");
-var btn = document.getElementById("btn");
 
 function showButton(){
   if(buttonShown == true && txt.value == ""){
@@ -61,8 +60,18 @@ function showButton(){
   }
 }
 
-var link;
-var url = document.getElementById("url").value;
+function positionError(){
+  var error = document.getElementById("error");
+  var left = (window.innerWidth - error.offsetWidth)/2;
+  error.style.left = left + "px";
+}
+
+window.onresize = function(){positionError()}
+
+function removeSpaces(url){
+  var url = document.getElementById("url");
+  url.value = url.value.replace(/ /g, "");
+}
 
 function submit(url){
   //alert(encodeURI(url));
@@ -112,14 +121,6 @@ window.addEventListener("scroll", function(){
   }
 
 }, false);
-
-// click GO button if user presses ENTER key
-txt.addEventListener("keyup", function(event) {
-  event.preventDefault();
-  if (event.keyCode === 13 && txt.style.width === "70vw") {
-    btn.click();
-  }
-});
 
 function appendURL(obj){
   if(obj.value.slice(0, 15) === "https://1pt.co/"){
