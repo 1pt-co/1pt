@@ -74,7 +74,6 @@ function removeSpaces(url){
 }
 
 function submit(url){
-  //alert(encodeURI(url));
   var pattern = new RegExp(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g);
   var isURL = pattern.test(url);
 
