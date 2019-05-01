@@ -87,7 +87,7 @@ function submit(url){
         document.getElementById("qr-code").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + link;
       }
     };
-    xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" + txt.value + "&de=" + document.getElementById("desktop").value + "&mo=" + document.getElementById("mobile").value + "&ap=" + document.getElementById("apple").value + "&an=" + document.getElementById("android").value + "&cu=" + document.getElementById("custom").value.replace("https://1pt.co/"), true);
+    xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" + txt.value + "&de=" + document.getElementById("desktop").value + "&mo=" + document.getElementById("mobile").value + "&ap=" + document.getElementById("apple").value + "&an=" + document.getElementById("android").value + "&cu=" + document.getElementById("custom").value.replace("https://1pt.co/", ""), true);
     xhttp.send();
 
     txt.classList = "animated bounceOutLeft";
