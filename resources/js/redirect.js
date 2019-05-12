@@ -1,7 +1,7 @@
 window.onload = function(){
     var md = new MobileDetect(window.navigator.userAgent);
     var url = window.location.href.split('1pt.co/')[1].toLowerCase();
-  
+
     function redirectToLongUrl(url){
       if(url.includes('https://') || url.includes('http://')){
         window.location = url;
@@ -11,17 +11,17 @@ window.onload = function(){
         window.location = fullURL;
       }
     }
-  
-  
+
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         if(this.responseText.trim().toLowerCase() == "error"){
-          document.getElementById("error").style.visibility = "visible";
+          document.getElementById("error404").style.visibility = "visible";
         } else {
           console.log(this.responseText)
           data = JSON.parse(this.responseText)
-  
+
           if(md.os() == "iOS" && data[3]){
             redirectToLongUrl(data[3]);
           } else if(md.os == "AndroidOS" && data[4]) {
