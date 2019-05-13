@@ -1,5 +1,7 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+
 if(!empty($_GET["url"])) {
     $long = $_GET["url"];
     $desktop = @$_GET["desktop"];
