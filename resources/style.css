@@ -72,7 +72,7 @@ input{
 .error{
   opacity: 0;
   position: fixed;
-  top: 0px;
+  top: 0;
   background-color: #ea0000;
   padding: 10px;
   border-radius: 10px;
@@ -136,7 +136,7 @@ input{
 #arrow{
   position: absolute;
   bottom: 5vh;
-  left: 0px;
+  left: 0;
   width: 100vw;
   font-size: 3em;
   color: white;
