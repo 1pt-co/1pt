@@ -122,9 +122,7 @@ window.addEventListener("scroll", function(){
 }, false);
 
 function appendURL(obj){
-  if(obj.value.slice(0, 15) === "https://1pt.co/"){
-
-  } else if(obj.value.slice(0, 14) === "https://1pt.co"){
+  if(obj.value.slice(0, 14) === "https://1pt.co"){
     obj.value = 'https://1pt.co/';
   } else {
     obj.value = 'https://1pt.co/' + obj.value;
