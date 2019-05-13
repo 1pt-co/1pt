@@ -69,7 +69,6 @@ function positionError(){
 window.onresize = function(){positionError()}
 
 function removeSpaces(url){
-  var url = document.getElementById("url");
   url.value = url.value.replace(/ /g, "");
 }
 
@@ -87,7 +86,7 @@ function submit(url){
         document.getElementById("qr-code").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + link;
       }
     };
-    xhttp.open("GET", "https://api.1pt.co?url=" + txt.value + "&desktop=" + document.getElementById("desktop").value + "&mobile=" + document.getElementById("mobile").value + "&apple=" + document.getElementById("apple").value + "&android=" + document.getElementById("android").value + "&custom=" + document.getElementById("custom").value.replace("https://1pt.co/", ""), true);
+    xhttp.open("GET", "https://api.1pt.co?url=" + txt.value + "&desktop=" + document.getElementById("desktop").value + "&mobile=" + document.getElementById("mobile").value + "&apple=" + document.getElementById("apple").value + "&android=" + document.getElementById("android").value + "&custom=" + document.getElementById("custom").value, true);
     xhttp.send();
 
     txt.classList = "animated bounceOutLeft";
@@ -120,13 +119,3 @@ window.addEventListener("scroll", function(){
   }
 
 }, false);
-
-function appendURL(obj){
-  if(obj.value.slice(0, 14) === "https://1pt.co"){
-    obj.value = 'https://1pt.co/';
-  } else {
-    obj.value = 'https://1pt.co/' + obj.value;
-  }
-
-  obj.value = obj.value.replace(/ /g, "");
-}

@@ -67,6 +67,7 @@ input{
   text-align:center;
   padding:10px;
   border-radius:6px;
+  font-family: "Arial";
 }
 
 .error{
@@ -161,8 +162,20 @@ input{
 }
 
 #customize input::placeholder {
-    color: #424242;
-    opacity: 1; /* Firefox */
+  color: #424242;
+  opacity: 1; /* Firefox */
+}
+
+#custom-url input{
+  text-indent: 192px;
+}
+
+#custom-url span{
+  font-size:2em;
+  position: absolute;
+  padding:10px;
+  color: #424242;
+  font-family: "Arial";
 }
 
 #qr-code-section{

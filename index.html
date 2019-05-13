@@ -27,7 +27,7 @@
       <h2 id="typeit"></h2>
     </div>
 
-    <br><input  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus onchange="removeSpaces(); showButton();" onkeypress="this.onchange()" onpaste="this.onchange()" oninput="this.onchange()" id="url" type="text" placeholder="paste long url here">
+    <br><input  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus onchange="removeSpaces(this); showButton();" onkeypress="this.onchange()" onpaste="this.onchange()" oninput="this.onchange()" id="url" type="text" placeholder="paste long url here">
 
     <h3 class="error" id="error"><i class="fas fa-exclamation-circle"></i> You must enter a valid URL!</h3>
 
@@ -72,9 +72,12 @@
         </table>
 
         <h1><i class="fas fa-link"></i> Custom Link</h1><br>
-        <p id="custom-url-desc">Instead of a using a random URL, you can request a custom short URL like <b>1pt.co/custom</b>, if it isn't taken already.</p>
-        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="custom" type="text" onchange="appendURL(this);" onkeypress="this.onchange()" onpaste="this.onchange()" oninput="this.onchange()" placeholder="https://1pt.co/">
-      </div>
+          <p id="custom-url-desc">Instead of a using a random URL, you can request a custom short URL like <b>1pt.co/custom</b>, if it isn't taken already.</p>
+
+          <div id="custom-url">
+            <span>https://1pt.co/</span><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="custom" onchange="removeSpaces(this);" onkeypress="this.onchange()" onpaste="this.onchange()" oninput="this.onchange()" id="url" type="text">
+          </div>
+        </div>
 
     </div>
 
