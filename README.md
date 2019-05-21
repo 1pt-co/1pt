@@ -2,7 +2,7 @@
 
 [![Uptime](https://img.shields.io/uptimerobot/ratio/m782561487-e7e43bdb0203a835e6713721.svg?style=flat-square)](https://status.param.me/782561487)
 
-![Screenshot](resources/favicon/screenshot.png)
+[![Screenshot](resources/favicon/screenshot.png)](https://1pt.co)
 
 **1pt** is a URL shortening service that allows users to create dynamic URL forwarders. Users can generate smart links that point to different destinations based on factors like user agent or country. For example, a link like ```www.1pt.co/MyApp``` could point to the *Play Store* on all android devices, the *App Store* on all iPhones and iPads, and the app website on all desktop devices.
 
