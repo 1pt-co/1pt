@@ -12,7 +12,7 @@
 | `https://api.1pt.co` | `GET` |
 
 
-| Variable    | Requirement | Description |
+| Parameter    | Requirement | Description |
 | ----------: | :---------: | ---------------------------------------------- |
 | `url`       | Required    | The long URL to shorten                        |
 | `custom`    | Optional    | Request a custom short URL                     |
