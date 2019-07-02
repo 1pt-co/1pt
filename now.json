@@ -1,0 +1,5 @@
+{
+    "version": 2,
+    "builds": [{ "src": "api/index.php", "use": "@now/php" }],
+    "alias": ["api.1pt.co", "1pt"]
+}
