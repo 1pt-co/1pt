@@ -23,5 +23,8 @@
 
 For example, a request to `https://api.1pt.co/?url=www.param.me` will return a random 4-letter string like `an5n`. In that case, `1pt.co/an5n` is your short URL that redirects to `www.param.me`. If you request a custom short URL and it doesn't return that URL, it's already taken. So `http://api.1pt.co/?url=www.param.me&custom=MyWebsite` will return `MyWebsite` if it's available, and a random 4-letter string if it isn't.
 
+## Self hosting
+You can host an instance of **1pt** by following the steps outlined [here](backend)
+
 -----
 ###### This project is maintained by [Param Thakkar](https://www.param.me)
