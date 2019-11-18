@@ -34,15 +34,6 @@ if (mysqli_num_rows($result) > 0) {
 } else {
 	echo "error";
 }
-/**
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["long_url"];
-    }
-} else {
-    echo "error";
-}
-*/
+
 $conn->close();
 ?> 
