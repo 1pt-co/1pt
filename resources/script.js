@@ -1,7 +1,6 @@
 var input = document.getElementById("url");
 var button = document.getElementById("submit");
 
-
 // Click GO button if the ENTER key is pressed
 input.addEventListener("keyup", function(event) {
     event.preventDefault();
@@ -28,9 +27,9 @@ function showOptions() {
 
 function showError(message) {
     Swal.fire({
-        title: 'Invalid URL!',
-        icon: 'error',
-        confirmButtonText: 'OK'
+        title: message,
+        icon: "error",
+        confirmButtonText: "OK"
     })
 }
 
