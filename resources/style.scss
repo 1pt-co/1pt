@@ -4,6 +4,7 @@
 $primary-color: #2e2f4a;
 $secondary-color: #171721;
 $round-edges: 10px;
+$animation-duration: 0.7s;
 
 body {
   margin: 0;
@@ -23,7 +24,7 @@ body {
     @extend #main;
 
     height: 100vh;
-    transition: height 0.5s;
+    transition: height $animation-duration;
   }
 }
 
@@ -53,7 +54,7 @@ h1 {
   margin-right: 0;
   border-radius: $round-edges 0 0 $round-edges;
   color: $primary-color;
-  transition: width 0.5s;
+  transition: width $animation-duration;
 
   &:disabled {
     background-color: #c8d0de;
