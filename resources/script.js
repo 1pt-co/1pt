@@ -15,7 +15,8 @@ function showOptions() {
     if(input.value != "" && validateURL(input.value)) {
         input.disabled = true;
         input.style.width = "1200px";
-        input.style.borderRadius = "10px";
+        // Apply the top-left border-radius to all 4 sides
+        input.style.borderRadius = getComputedStyle(input).borderRadius.split(" ")[0];
         button.style.display = "none";
 
         document.getElementById("top").style.height = "300px";
