@@ -25,6 +25,7 @@ function showOptions() {
     }
 }
 
+// Error popup
 function showError(message) {
     Swal.fire({
         title: message,
@@ -33,6 +34,7 @@ function showError(message) {
     })
 }
 
+// Return true if the input could be a valid URL
 function validateURL(url) {
     var regex = new RegExp(/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi);
 
