@@ -18,16 +18,30 @@
         <div class="input-box">
           <input id="url" type="text" placeholder="paste long url here" autofocus
           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-          <input id="submit" type="button" value="GO" onclick="showOptions();">
+          <input id="next" type="button" value="GO" onclick="showOptions();">
         </div>
       </div>
 
       <div id="options" class="options">
 
+        <div id="header">
+          <h2>
+            OPTIONS <a href=""><i class="fas fa-question-circle help"></i></a>
+          </h2>
+        </div>
+
+        <div id="body">
+          <div class="options-left">
+            <h3>Custom URL</h3> <input type="text" id="custom-url"> <br>
+            <input id="submit" type="button" value="Shorten">
+          </div>
+        </div>
       </div>
 
     </div>
 
+    <script src="https://kit.fontawesome.com/b60a8aab98.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.5.3/dist/cleave.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="resources/script.js"></script>
   </body>

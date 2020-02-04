@@ -1,5 +1,5 @@
 var input = document.getElementById("url");
-var button = document.getElementById("submit");
+var button = document.getElementById("next");
 
 // Click GO button if the ENTER key is pressed
 input.addEventListener("keyup", function(event) {
@@ -44,3 +44,8 @@ function validateURL(url) {
         return false;
     }
 }
+
+// Add '1pt.co/' prefix to input#custom-url
+var cleave = new Cleave("#custom-url", {
+    prefix: "1pt.co/",
+});
