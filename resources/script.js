@@ -19,6 +19,16 @@ customURLInput.addEventListener("keyup", function(event) {
     }
 });
 
+// Copy value (in URL form) to clipboard
+function copyToClipboard(value) {
+    var temp = document.createElement("textarea");
+    temp.value = "https://" + value;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
+}
+
 // Add '1pt.co/' prefix to input#custom-url
 var cleave = new Cleave(customURLInput, {
     prefix: "1pt.co/",
