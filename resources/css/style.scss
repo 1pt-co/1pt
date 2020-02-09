@@ -108,7 +108,8 @@ input[type=button] {
       font-size: 28px;
       text-align: center;
 
-      a {
+      .info-btn {
+        cursor: pointer;
         color: white;
         transition: color 0.2s;
 

@@ -41,7 +41,7 @@ function showOptions() {
 
         customURLInput.focus({preventScroll: true});
     } else {
-        showError("Invalid URL!");
+        showPopup("error", "Invalid URL!");
     }
 }
 
@@ -83,7 +83,7 @@ function sendRequest(longURL, shortURL){
         xhttp.open("GET", request, true);
         xhttp.send();
     } else {
-        showError("There was an error!");
+        showPopup("error", "There was an error!");
     }
 }
 
@@ -93,11 +93,12 @@ submit.onclick = function() {
 
 /* Helper functions below */
 
-// Show error popup
-const showError = message => {
+// Show popup
+const showPopup = (type, title, description) => {
     Swal.fire({
-        title: message,
-        icon: "error",
+        title: title,
+        text: description,
+        icon: type,
         confirmButtonText: "OK"
     })
 }
