@@ -1,12 +1,21 @@
 var input = document.getElementById("url");
 var next = document.getElementById("next");
 var submit = document.getElementById("submit");
+var customURLInput = document.getElementById("custom-url");
 
-// Click GO button if the ENTER key is pressed
+// Click 'GO' button if the ENTER key is pressed
 input.addEventListener("keyup", function(event) {
     event.preventDefault();
     if (event.keyCode == 13) {
         next.click();
+    }
+});
+
+// Click 'Shorten' button if the ENTER key is pressed
+customURLInput.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        submit.click();
     }
 });
 
@@ -22,6 +31,8 @@ function showOptions() {
 
         document.getElementById("top").style.height = "300px";
         document.getElementById("options").style.display = "block";
+
+        customURLInput.focus({preventScroll: true});
     } else {
         showError("Invalid URL!");
     }
@@ -48,7 +59,7 @@ function validateURL(url) {
 }
 
 // Add '1pt.co/' prefix to input#custom-url
-var cleave = new Cleave("#custom-url", {
+var cleave = new Cleave(customURLInput, {
     prefix: "1pt.co/",
 });
 
@@ -105,6 +116,5 @@ function remove(string, toRemove) {
 }
 
 submit.onclick = function() {
-    customURL = document.getElementById("custom-url");
-    sendRequest(input.value, remove(customURL.value, ["1pt.co/", "/", "\\?"]));
+    sendRequest(input.value, remove(customURLInput.value, ["1pt.co/", "/", "\\?"]));
 };
