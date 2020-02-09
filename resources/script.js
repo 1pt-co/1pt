@@ -19,7 +19,12 @@ customURLInput.addEventListener("keyup", function(event) {
     }
 });
 
-// Called by clicking the GO button
+// Add '1pt.co/' prefix to input#custom-url
+var cleave = new Cleave(customURLInput, {
+    prefix: "1pt.co/",
+});
+
+// Show div#options (called by clicking the GO button)
 function showOptions() {
     if(input.value != "" && validateURL(input.value)) {
         input.disabled = true;
@@ -29,6 +34,7 @@ function showOptions() {
         // Apply the top-left border-radius to all 4 sides
         input.style.borderRadius = getComputedStyle(input).borderRadius.split(" ")[0];
 
+        // Shift div#options up by reducing the height of div#top
         document.getElementById("top").style.height = "300px";
         document.getElementById("options").style.display = "block";
 
@@ -38,31 +44,7 @@ function showOptions() {
     }
 }
 
-// Error popup
-function showError(message) {
-    Swal.fire({
-        title: message,
-        icon: "error",
-        confirmButtonText: "OK"
-    })
-}
-
-// Return true if the input could be a valid URL
-function validateURL(url) {
-    var regex = new RegExp(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g);
-
-    if (regex.test(url)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-// Add '1pt.co/' prefix to input#custom-url
-var cleave = new Cleave(customURLInput, {
-    prefix: "1pt.co/",
-});
-
+// Display QR code and the shortened URL
 function displayOutput(shortURL) {
     qrCode = document.getElementById("qr-code");
     output = document.getElementById("output");
@@ -104,17 +86,39 @@ function sendRequest(longURL, shortURL){
     }
 }
 
-function remove(string, toRemove) {
-
-    toRemove.forEach(function(item, index) {
-        console.log(item);
-        string = string.replace(new RegExp(item, "gi"), "");
-        console.log(index);
-    })
-
-    return string;
-}
-
 submit.onclick = function() {
     sendRequest(input.value, remove(customURLInput.value, ["1pt.co/", "/", "\\?"]));
 };
+
+/* Helper functions below */
+
+// Show error popup
+function showError(message) {
+    Swal.fire({
+        title: message,
+        icon: "error",
+        confirmButtonText: "OK"
+    })
+}
+
+// Check whether a given string *could* be a valid URL
+function validateURL(url) {
+    var regex = new RegExp(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g);
+
+    if (regex.test(url)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Remove all occurrences of each item in the toRemove array from string baseString
+function remove(baseString, toRemove) {
+    toRemove.forEach(function(item, index) {
+        console.log(item);
+        baseString = baseString.replace(new RegExp(item, "gi"), "");
+        console.log(index);
+    })
+
+    return baseString;
+}
