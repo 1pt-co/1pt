@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="resources/style.css" rel="stylesheet">
+    <link href="resources/animate.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins:400,700&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -32,12 +33,17 @@
 
         <div id="body">
           <div class="options-left">
-            <h3>Custom URL</h3> <input type="text" id="custom-url"> <br>
+            <h3>Custom URL</h3> Leave blank for a random URL<input type="text" id="custom-url"> <br>
             <input id="submit" type="button" value="Shorten">
+          </div>
+
+          <div id="qr-code-wrapper"><img id="qr-code"></div>
+
+          <div id="output-wrapper">
+            <input id="output" type="text" disabled> <input id="copy" type="button" value="Copy">
           </div>
         </div>
       </div>
-
     </div>
 
     <script src="https://kit.fontawesome.com/b60a8aab98.js" crossorigin="anonymous" defer></script>

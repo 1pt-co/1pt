@@ -84,11 +84,9 @@ input[type=button] {
   float: right;
 }
 
-
-#options {
+.options {
   display: none;
   width: 1220px;
-  height: 500px;
   background-color: white;
   border-radius: $round-edges;
   color: black;
@@ -125,10 +123,13 @@ input[type=button] {
   #body {
     padding: 30px;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr 1fr;
 
     .options-left {
       width: 300px;
+      left: 0;
+      right: 0;
+      margin: auto;
 
       h3 {
         margin: 0;
@@ -142,6 +143,29 @@ input[type=button] {
         width: 100%;
         box-sizing: border-box;
       }
+    }
+
+    #qr-code-wrapper, #output-wrapper {
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    #output {
+      border-radius: $round-edges 0 0 $round-edges;
+      width: 200px;
+      text-align: center;
+      visibility: hidden;
+    }
+
+    #qr-code {
+      visibility: hidden;
+    }
+
+    #copy {
+      visibility: hidden;
+      border-radius: 0 $round-edges $round-edges 0;
+      float: right;
     }
   }
 }
