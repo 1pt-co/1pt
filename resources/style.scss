@@ -15,6 +15,11 @@ body {
   overflow: hidden;
 }
 
+// script.js will create a temporary textarea in order to copy text to clipboard
+textarea {
+  opacity: 0;
+}
+
 #main {
   display: flex;
   flex-direction: column;
