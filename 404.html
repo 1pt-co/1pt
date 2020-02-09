@@ -3,12 +3,13 @@ permalink: /404.html
 ---
 <!DOCTYPE html>
 <html>
-
   <head>
+    <meta charset="utf-8">
+		<meta http-equiv="Status" content="302 Found">
     <title>1 Point</title>
     <script src="resources/js/mobile-detect.js"></script>
     <script src="resources/js/redirect.js"></script>
-    <link href="resources/style.css" rel="stylesheet">
+    <link href="resources/css/redirect.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
@@ -24,10 +25,15 @@ permalink: /404.html
   </head>
 
   <body>
+    <div id="loading">
+      <div class="loader"></div>
+      <p>Redirecting...</p>
+    </div>
+
     <div id="error404" style="visibility:hidden">
       <h1>Error 404</h1>
       <p>That page doesn't exist</p><br>
-      <a href="https://1pt.co"><button>Back to home</button></a>
+      <a href="https://1pt.co">Back to home</a>
     </div>
   </body>
 
