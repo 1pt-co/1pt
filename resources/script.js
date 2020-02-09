@@ -2,6 +2,7 @@ const input = document.getElementById("url");
 const next = document.getElementById("next");
 const submit = document.getElementById("submit");
 const customURLInput = document.getElementById("custom-url");
+const copyTooltip = document.getElementById("tooltiptext");
 
 // Click 'GO' button if the ENTER key is pressed
 input.addEventListener("keyup", function(event) {
@@ -129,4 +130,5 @@ const copyToClipboard = value => {
     temp.select();
     document.execCommand("copy");
     document.body.removeChild(temp);
+    copyTooltip.innerHTML = "Copied!";
 }
