@@ -115,9 +115,7 @@ function validateURL(url) {
 // Remove all occurrences of each item in the toRemove array from string baseString
 function remove(baseString, toRemove) {
     toRemove.forEach(function(item, index) {
-        console.log(item);
         baseString = baseString.replace(new RegExp(item, "gi"), "");
-        console.log(index);
     })
 
     return baseString;
