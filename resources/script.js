@@ -1,7 +1,7 @@
-var input = document.getElementById("url");
-var next = document.getElementById("next");
-var submit = document.getElementById("submit");
-var customURLInput = document.getElementById("custom-url");
+const input = document.getElementById("url");
+const next = document.getElementById("next");
+const submit = document.getElementById("submit");
+const customURLInput = document.getElementById("custom-url");
 
 // Click 'GO' button if the ENTER key is pressed
 input.addEventListener("keyup", function(event) {
@@ -19,18 +19,8 @@ customURLInput.addEventListener("keyup", function(event) {
     }
 });
 
-// Copy value (in URL form) to clipboard
-function copyToClipboard(value) {
-    var temp = document.createElement("textarea");
-    temp.value = "https://" + value;
-    document.body.appendChild(temp);
-    temp.select();
-    document.execCommand("copy");
-    document.body.removeChild(temp);
-}
-
 // Add '1pt.co/' prefix to input#custom-url
-var cleave = new Cleave(customURLInput, {
+const cleave = new Cleave(customURLInput, {
     prefix: "1pt.co/",
 });
 
@@ -103,7 +93,7 @@ submit.onclick = function() {
 /* Helper functions below */
 
 // Show error popup
-function showError(message) {
+const showError = message => {
     Swal.fire({
         title: message,
         icon: "error",
@@ -112,7 +102,7 @@ function showError(message) {
 }
 
 // Check whether a given string *could* be a valid URL
-function validateURL(url) {
+const validateURL = url => {
     var regex = new RegExp(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g);
 
     if (regex.test(url)) {
@@ -123,10 +113,20 @@ function validateURL(url) {
 }
 
 // Remove all occurrences of each item in the toRemove array from string baseString
-function remove(baseString, toRemove) {
+const remove = (baseString, toRemove) => {
     toRemove.forEach(function(item, index) {
         baseString = baseString.replace(new RegExp(item, "gi"), "");
     })
 
     return baseString;
+}
+
+// Copy value (in URL form) to clipboard
+const copyToClipboard = value => {
+    var temp = document.createElement("textarea");
+    temp.value = "https://" + value;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
 }
