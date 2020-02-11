@@ -79,6 +79,10 @@ input[type=button] {
   }
 }
 
+input[type=button]:disabled {
+  background-color: #424247;
+}
+
 #url {
   width: 1100px;
   margin-right: 0;

@@ -51,6 +51,7 @@ function displayOutput(shortURL) {
     output = document.getElementById("output");
     outputWrapper = document.getElementById("output-wrapper");
     copyBtn = document.getElementById("copy");
+    submit.disabled = true;
 
     qrCode.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://" + shortURL;
     output.value = shortURL;
