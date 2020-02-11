@@ -1,121 +1,135 @@
-window.onload = function(){
-  if(screen.width > 1350){
-    new TypeIt('#typeit', {
-      speed: 75,
-      breakLines: false,
-      autoStart: false
-    })
-    .type(" &#124; Dynamic URL Shortener")
-  } else {
-    new TypeIt('#typeit', {
-      speed: 60,
-      breakLines: false,
-      autoStart: false
-    })
-    .pause(300)
-    .type(" &#124; URL Shortener")
-    .pause(1000)
-    .delete(13)
-    .pause(100)
-    .type("Dynamic Linking");
-  }
+const input = document.getElementById("url");
+const next = document.getElementById("next");
+const submit = document.getElementById("submit");
+const customURLInput = document.getElementById("custom-url");
+const copyTooltip = document.getElementById("tooltiptext");
 
-  positionError()
-  window.setTimeout(function(){
-    document.getElementById("arrow").style.visibility = "visible";
-      document.getElementById("arrow").classList = "animated bounce";
-  }, 2500);
-
-  txt = document.getElementById("url");
-  btn = document.getElementById("btn");
-
-  // click GO button if user presses ENTER key
-  txt.addEventListener("keyup", function(event) {
+// Click 'GO' button if the ENTER key is pressed
+input.addEventListener("keyup", function(event) {
     event.preventDefault();
-    if (event.keyCode === 13 && txt.style.width === "70vw") {
-      btn.click();
+    if (event.keyCode == 13) {
+        next.click();
     }
-  });
+});
+
+// Click 'Shorten' button if the ENTER key is pressed
+customURLInput.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        submit.click();
+    }
+});
+
+// Add '1pt.co/' prefix to input#custom-url
+const cleave = new Cleave(customURLInput, {
+    prefix: "1pt.co/",
+});
+
+// Show div#options (called by clicking the GO button)
+function showOptions() {
+    if(input.value != "" && validateURL(input.value)) {
+        input.disabled = true;
+        input.style.width = "100%";
+        next.style.display = "none";
+
+        // Apply the top-left border-radius to all 4 sides
+        input.style.borderRadius = getComputedStyle(input).borderRadius.split(" ")[0];
+
+        // Shift div#options up by reducing the height of div#top
+        document.getElementById("top").style.height = "300px";
+        document.getElementById("options").style.display = "block";
+
+        customURLInput.focus({preventScroll: true});
+    } else {
+        showPopup("error", "Invalid URL!");
+    }
 }
 
-var buttonShown = false
-var txt;
-var btn;
+// Display QR code and the shortened URL
+function displayOutput(shortURL) {
+    qrCode = document.getElementById("qr-code");
+    output = document.getElementById("output");
+    outputWrapper = document.getElementById("output-wrapper");
+    copyBtn = document.getElementById("copy");
+    submit.disabled = true;
 
+    qrCode.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://" + shortURL;
+    output.value = shortURL;
 
-function showButton(){
-  if(buttonShown == true && txt.value == ""){
-    txt.style.width = "80vw";
-    btn.style.width = "0px";
-    btn.style.color = "#424242";
-    btn.style.paddingLeft = "0";
-    btn.style.paddingRight = "0";
-    buttonShown = false;
-  } else if (txt.value !== "") {
-    txt.style.width = "70vw";
-    btn.style.padding = "10px";
-    btn.style.width = "10vw";
-    btn.style.color = "white";
-    buttonShown = true;
-  }
+    copyBtn.style.visibility = "visible";
+    output.style.visibility = "visible";
+
+    outputWrapper.classList.add("animated", "faster", "zoomIn");
+    copyBtn.classList.add("animated", "faster", "zoomIn");
+
+    qrCode.onload = function(){
+        qrCode.style.visibility = "visible";
+        qrCode.classList.add("animated", "faster", "zoomIn");
+    }
 }
 
-function positionError(){
-  var error = document.getElementById("error");
-  var left = (window.innerWidth - error.offsetWidth)/2;
-  error.style.left = left + "px";
+// Return short URL given a long URL
+function sendRequest(longURL, shortURL){
+    if(validateURL(longURL)){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                shortURL = "1pt.co/" + this.responseText;
+                displayOutput(shortURL);
+            }
+        };
+
+        request = "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" + longURL + "&cu=" + encodeURI(shortURL);
+        xhttp.open("GET", request, true);
+        xhttp.send();
+    } else {
+        showPopup("error", "There was an error!");
+    }
 }
 
-window.onresize = function(){positionError()}
+submit.onclick = function() {
+    sendRequest(input.value, remove(customURLInput.value, ["1pt.co/", "/", "\\?"]));
+};
 
-function removeSpaces(url){
-  url.value = url.value.replace(/ /g, "");
+/* Helper functions below */
+
+// Show popup
+const showPopup = (type, title, description) => {
+    Swal.fire({
+        title: title,
+        text: description,
+        icon: type,
+        confirmButtonText: "OK"
+    })
 }
 
-function submit(url){
-  var pattern = new RegExp(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g);
-  var isURL = pattern.test(url);
+// Check whether a given string *could* be a valid URL
+const validateURL = url => {
+    var regex = new RegExp(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g);
 
-  if(isURL){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        link = "https://1pt.co/" + this.responseText;
-        document.getElementById("short-url").value = link.slice(8);
-        document.getElementById("qr-code-link").href = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + link;
-        document.getElementById("qr-code").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + link;
-      }
-    };
-    xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" + txt.value + "&de=" + encodeURI(document.getElementById("desktop").value) + "&mo=" + encodeURI(document.getElementById("mobile").value) + "&ap=" + encodeURI(document.getElementById("apple").value) + "&an=" + encodeURI(document.getElementById("android").value) + "&cu=" + encodeURI(document.getElementById("custom").value), true);
-    xhttp.send();
-
-    txt.classList = "animated bounceOutLeft";
-    btn.classList = "btn animated bounceOutLeft";
-
-    document.getElementById("short-url").style.display = "inline-block";
-    document.getElementById("short-url").classList = "animated delay-500 bounceInRight";
-    document.getElementById("qr-code-section").style.display = "block";
-    document.getElementById("settings-section").style.display = "none";
-  } else {
-    txt.value = "";
-    showButton();
-    document.getElementById("error").style.opacity = "1";
-    document.getElementById("error").classList = "error animated shake";
-    window.setTimeout(function(){
-      document.getElementById("error").style.opacity = "0";
-      document.getElementById("error").classList = "error";
-    }, 3000)
-  }
+    if (regex.test(url)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-window.addEventListener("scroll", function(){
-	var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
-	if(scrollTop !== 0){
-    document.getElementById("short-url").style.boxShadow = '0px 0px 0px 2px white';
-    document.getElementById('arrow').classList = 'animated fadeOutUp';
-  } else {
-    document.getElementById("short-url").style.boxShadow = 'none';
-    document.getElementById('arrow').classList = 'animated bounce';
-  }
+// Remove all occurrences of each item in the toRemove array from string baseString
+const remove = (baseString, toRemove) => {
+    toRemove.forEach(function(item, index) {
+        baseString = baseString.replace(new RegExp(item, "gi"), "");
+    })
 
-}, false);
+    return baseString;
+}
+
+// Copy value (in URL form) to clipboard
+const copyToClipboard = value => {
+    var temp = document.createElement("textarea");
+    temp.value = "https://" + value;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
+    copyTooltip.innerHTML = "Copied!";
+}

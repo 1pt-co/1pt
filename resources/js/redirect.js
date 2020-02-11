@@ -18,6 +18,7 @@ window.onload = function(){
       if (this.readyState == 4 && this.status == 200) {
         if(this.responseText.trim().toLowerCase() == "error"){
           document.getElementById("error404").style.visibility = "visible";
+          document.getElementById("loading").style.visibility = "hidden";
         } else {
           console.log(this.responseText)
           data = JSON.parse(this.responseText)
