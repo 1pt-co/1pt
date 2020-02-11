@@ -29,7 +29,7 @@ const cleave = new Cleave(customURLInput, {
 function showOptions() {
     if(input.value != "" && validateURL(input.value)) {
         input.disabled = true;
-        input.style.width = "1200px";
+        input.style.width = "100%";
         next.style.display = "none";
 
         // Apply the top-left border-radius to all 4 sides
@@ -51,7 +51,6 @@ function displayOutput(shortURL) {
     output = document.getElementById("output");
     outputWrapper = document.getElementById("output-wrapper");
     copyBtn = document.getElementById("copy");
-
 
     qrCode.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://" + shortURL;
     output.value = shortURL;
