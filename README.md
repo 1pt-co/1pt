@@ -4,7 +4,7 @@
 
 [![Screenshot](resources/assets/screenshot.png)](https://1pt.co)
 
-**1pt** is a URL shortening service that allows users to create dynamic URL forwarders. Users can generate smart links that point to different destinations based on factors like user agent or country. For example, a link like ```www.1pt.co/MyApp``` could point to the *Play Store* on all android devices, the *App Store* on all iPhones and iPads, and the app website on all desktop devices.
+**1pt** is a simple-to-use URL shortening service.
 
 ## Self hosting
 You can host an instance of **1pt** by following the steps outlined [here](backend)
