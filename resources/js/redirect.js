@@ -1,6 +1,7 @@
 window.onload = function(){
     var md = new MobileDetect(window.navigator.userAgent);
     var url = window.location.href.split('1pt.co/')[1].toLowerCase();
+    url = url.split('?')[0] // Remove URL parameters
 
     function redirectToLongUrl(url){
       if(url.includes('https://') || url.includes('http://')){
