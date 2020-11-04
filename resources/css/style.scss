@@ -11,7 +11,7 @@ body {
   padding: 0;
   background-color: $primary-color;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 // script.js will create a temporary textarea in order to copy text to clipboard
@@ -49,15 +49,16 @@ h1 {
   width: 1200px;
 }
 
-input[type=text], input[type=button] {
-  padding:10px;
+input[type="text"],
+input[type="button"] {
+  padding: 10px;
   font-size: 25px;
   outline: none;
   border: none;
   font-family: "Open Sans";
 }
 
-input[type=text] {
+input[type="text"] {
   border-radius: $round-edges;
   color: $primary-color;
   transition: width $animation-duration;
@@ -67,7 +68,7 @@ input[type=text] {
   }
 }
 
-input[type=button] {
+input[type="button"] {
   border-radius: $round-edges;
   background-color: $secondary-color;
   color: white;
@@ -78,7 +79,7 @@ input[type=button] {
   }
 }
 
-input[type=button]:disabled {
+input[type="button"]:disabled {
   background-color: #424247;
 }
 
@@ -108,7 +109,7 @@ input[type=button]:disabled {
     border-radius: $round-edges $round-edges 0 0;
     padding: 10px 0;
     width: 100%;
-    background-color:$secondary-color;
+    background-color: $secondary-color;
     color: white;
 
     h2 {
@@ -159,7 +160,8 @@ input[type=button]:disabled {
       }
     }
 
-    #qr-code-wrapper, #output-wrapper {
+    #qr-code-wrapper,
+    #output-wrapper {
       left: 0;
       right: 0;
       margin: auto;
@@ -226,11 +228,13 @@ input[type=button]:disabled {
 }
 
 @media only screen and (max-width: 1250px) {
-  #main, #top {
+  #main,
+  #top {
     width: 100vw;
   }
 
-  .input-box, .options {
+  .input-box,
+  .options {
     width: 1000px;
   }
 
@@ -252,11 +256,13 @@ input[type=button]:disabled {
     font-size: 50px;
   }
 
-  #main, #top {
+  #main,
+  #top {
     width: 100vw;
   }
 
-  .input-box, .options {
+  .input-box,
+  .options {
     width: 800px;
   }
 
@@ -270,11 +276,13 @@ input[type=button]:disabled {
     font-size: 50px;
   }
 
-  #main, #top {
+  #main,
+  #top {
     width: 100vw;
   }
 
-  .input-box, .options {
+  .input-box,
+  .options {
     max-width: 95vw;
   }
 
@@ -293,8 +301,10 @@ input[type=button]:disabled {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr;
 
-      .options-left, #custom-url, #submit {
-        width: 100%
+      .options-left,
+      #custom-url,
+      #submit {
+        width: 100%;
       }
     }
   }
@@ -305,7 +315,9 @@ input[type=button]:disabled {
     content: none;
   }
 
-  input[type=text], input[type=button], .options #body .options-left input {
+  input[type="text"],
+  input[type="button"],
+  .options #body .options-left input {
     font-size: 20px;
   }
 }
