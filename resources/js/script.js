@@ -45,6 +45,10 @@ function showOptions() {
   } else {
     showPopup("error", "Invalid URL!");
   }
+
+  document
+    .getElementById("donate-btn")
+    .classList.add("animated", "fadeOutDown");
 }
 
 // Display QR code and the shortened URL
