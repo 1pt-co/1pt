@@ -98,15 +98,6 @@ input[type="button"]:disabled {
   float: right;
 }
 
-#donate-btn {
-  position: fixed;
-  bottom: 10px;
-
-  &:hover {
-    filter: brightness(90%);
-  }
-}
-
 .options {
   display: none;
   width: 1200px;
