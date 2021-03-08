@@ -7,11 +7,12 @@ from flask import Response
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import config
+import credentials
 
 # Authorize Google Sheets
 try:
 	scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-	credentials = ServiceAccountCredentials.from_json_keyfile_name(config.credentials, scope)
+	credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials.credentials(), scope)
 	gc = gspread.authorize(credentials)
 except OSError:
 	print("JSON file with Google account credentials not found!")
@@ -44,7 +45,7 @@ def add_row(short, long):
 
 def get_row(short_url):
   data = datasheet.get_all_values()
-  
+
   for i, row in enumerate(data):
     if(row[3] == short_url):
       datasheet.update_cell(i+1, 3, int(row[2])+1)
