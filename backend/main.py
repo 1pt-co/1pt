@@ -2,10 +2,12 @@ import json
 import string
 import random
 from datetime import datetime
+
 import pytz
 from flask import Response
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+
 import config
 import credentials
 
@@ -28,14 +30,14 @@ def add_row(short, long):
 
   short = ensure_unique(short)
 
-  timestamp = datetime.now(pytz.timezone("US/Eastern")).strftime("%Y/%m/%d %H:%M:%S")
+  timestamp = datetime.now(pytz.timezone("US/Eastern")).strftime("%d/%m/%Y %H:%M:%S")
 
   cells = datasheet.range("B" + str(index + 1) + ":E" + str(index + 1))
   cells[0].value = timestamp
   cells[1].value = 0
   cells[2].value = short
   cells[3].value = long
-  datasheet.update_cells(cells)
+  datasheet.update_cells(cells, "USER_ENTERED")
 
   index += 1
   indexsheet.update("A1", index)
