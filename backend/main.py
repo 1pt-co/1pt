@@ -71,7 +71,7 @@ def ensure_unique(url):
   while True:
     already_exists = False
     for row in data:
-      if row[3] == url:
+      if url == row[3] or url == None:
         already_exists = True
         url = generate_random(config.random_url_length)
         break;
