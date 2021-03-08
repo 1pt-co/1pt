@@ -16,15 +16,11 @@ window.onload = function () {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 301) {
-      if (this.responseText.trim().toLowerCase() == "error") {
-        console.log(this.responseText);
-        data = JSON.parse(this.responseText);
-        redirectToLongUrl(data.url);
-      } else {
-        console.log(this);
-        document.getElementById("error404").style.visibility = "visible";
-        document.getElementById("loading").style.display = "none";
-      }
+      data = JSON.parse(this.responseText);
+      redirectToLongUrl(data.url);
+    } else if (this.readyState == 4 && this.status == 404) {
+      document.getElementById("error404").style.visibility = "visible";
+      document.getElementById("loading").style.display = "none";
     }
   };
   xhttp.open("GET", "https://api.1pt.co/getURL?url=" + url, true);
