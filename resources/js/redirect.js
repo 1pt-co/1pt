@@ -21,6 +21,7 @@ window.onload = function () {
         data = JSON.parse(this.responseText);
         redirectToLongUrl(data.url);
       } else {
+        console.log(this);
         document.getElementById("error404").style.visibility = "visible";
         document.getElementById("loading").style.display = "none";
       }
