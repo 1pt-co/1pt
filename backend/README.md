@@ -1,16 +1,20 @@
-## Self Host 1pt
-Self-hosting 1pt requires atleast `PHP 5` and a `mysqli` database.
+# api.1pt.co
 
-### Sample `mysqli` Databse Structure
+[Hosted on repl.it](https://repl.it/@paramt/1ptco-API#main.py)
 
-| variable | type | default |
-| --- | --- | --- |
-| index | int | AUTO_INCREMENT
-| timestamp | timestamp | current_timestamp() 
-| short_url | text | 
-| long_url | text | 
-| desktop | text | 
-| mobile | text | 
-| apple | text | 
-| android | text | 
-| custom | text | 
+## Endpoints
+
+### api.1pt.co/getURL
+
+- Methods: `GET`
+- Paramters: `url`
+
+### api.1pt.co/addURL
+
+- Methods: `GET`
+- Parameters: `short`, `long`
+
+## Self-host an instance of 1pt
+
+1. Connect Google Sheets
+1. Run Flask server
