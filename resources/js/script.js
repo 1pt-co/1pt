@@ -78,16 +78,17 @@ function sendRequest(longURL, shortURL) {
   if (validateURL(longURL)) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        shortURL = "1pt.co/" + this.responseText;
+      if (this.readyState == 4 && this.status == 201) {
+        data = JSON.parse(this.responseText);
+        shortURL = "1pt.co/" + data.short;
         displayOutput(shortURL);
       }
     };
 
     request =
-      "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" +
+      "https://api.1pt.co/addURL?long=" +
       longURL +
-      "&cu=" +
+      "&short=" +
       encodeURI(shortURL);
     xhttp.open("GET", request, true);
     xhttp.send();
