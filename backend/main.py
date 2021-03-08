@@ -42,8 +42,9 @@ def add_row(short, long):
   index += 1
   indexsheet.update("A1", index)
 
-  response = {"status": 201, "message": "Added!", "short": short}
-  return Response(json.dumps(response), status=201, mimetype="application/json")
+  response = Response(json.dumps({"status": 201, "message": "Added!", "short": short}), status=201, mimetype="application/json")
+  response.headers['Access-Control-Allow-Origin'] = '*'
+  return response
 
 def get_row(short_url):
   data = datasheet.get_all_values()
@@ -51,11 +52,14 @@ def get_row(short_url):
   for i, row in enumerate(data):
     if(row[3] == short_url):
       datasheet.update_cell(i+1, 3, int(row[2])+1)
-      response = {"status": 301, "url": row[4]}
-      return Response(json.dumps(response), status=301, mimetype="application/json")
 
-  response = {"status": 404, "message": "URL doesn't exist!"}
-  return Response(json.dumps(response), status=404, mimetype="application/json")
+      response = Response(json.dumps({"status": 301, "url": row[4]}), status=301, mimetype="application/json")
+      response.headers['Access-Control-Allow-Origin'] = '*'
+      return response
+
+  response = Response(json.dumps({"status": 404, "message": "URL doesn't exist!"}), status=404, mimetype="application/json")
+  response.headers['Access-Control-Allow-Origin'] = '*'
+  return response
 
 def generate_random(length):
   letters = string.ascii_lowercase
