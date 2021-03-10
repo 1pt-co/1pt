@@ -25,18 +25,19 @@ datasheet = gc.open(config.spreadsheet).sheet1
 indexsheet = gc.open(config.spreadsheet).worksheet("index")
 index = int(indexsheet.cell(1, 1).value)
 
-def add_row(short, long):
+def add_row(short, long, ip):
   global index
 
   short = ensure_unique(short)
 
   timestamp = datetime.now(pytz.timezone("US/Eastern")).strftime("%d/%m/%Y %H:%M:%S")
 
-  cells = datasheet.range("B" + str(index + 1) + ":E" + str(index + 1))
+  cells = datasheet.range("B" + str(index + 1) + ":F" + str(index + 1))
   cells[0].value = timestamp
   cells[1].value = 0
   cells[2].value = short
   cells[3].value = long
+  cells[4].value = ip
   datasheet.update_cells(cells, "USER_ENTERED")
 
   index += 1

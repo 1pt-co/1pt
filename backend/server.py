@@ -19,13 +19,14 @@ def status():
 def add_URL():
   short = request.args.get("short")
   long = request.args.get("long")
+  ip = request.headers.get('X-Forwarded-For')
 
   if(long == None):
     response = Response("{'status': '400', 'message': 'Bad request. Read the documentation at 1pt.co/api'}", status=400, mimetype="application/json")
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
-  return(main.add_row(short, long))
+  return(main.add_row(short, long, ip))
 
 @app.route('/getURL', methods=['GET'])
 def get_URL():
