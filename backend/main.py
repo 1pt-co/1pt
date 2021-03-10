@@ -7,6 +7,7 @@ import pytz
 from flask import Response
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+import validators
 
 import config
 import credentials
@@ -27,6 +28,14 @@ index = int(indexsheet.cell(1, 1).value)
 
 def add_row(short, long, ip):
   global index
+
+  if long[:7] != "http://" and long[:8] != "https://":
+    long = "http://" + long
+
+  if not validators.url(long):
+    response = Response(json.dumps({"status": 400, "message": "Bad request: The provided URL is malformed"}), status=400, mimetype="application/json")
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
 
   short = ensure_unique(short)
 
