@@ -8,7 +8,7 @@
 
 # Backend
 
-The API runs on a Flask server [hosted on repl.it](https://repl.it/@paramt/1ptco-API).
+The API runs on a Flask server [hosted on replit](https://repl.it/@paramt/1ptco-API).
 
 ## 🖥️ API
 
@@ -50,7 +50,7 @@ Self-hosting an instance of 1pt requires setting up the Flask server and the Goo
    - Fill in the required fields, press <kbd>CREATE</kbd>, <kbd>CONTINUE</kbd>, and on the last step click <kbd>+ CREATE KEY</kbd> to download a JSON file
 1. Set up the Python server
 
-   - Fork the [1pt.co repl.it](https://repl.it/@paramt/1ptco-API)
+   - Fork the [1pt.co replit](https://repl.it/@paramt/1ptco-API)
    - Create a file named `.env` and create the following environment variables:
 
    ```
@@ -81,7 +81,7 @@ Self-hosting an instance of 1pt requires setting up the Flask server and the Goo
 
    - Run your repl.it and set it to be **always on**
 
-   > 📝 Note: This requires the [Repl.it Hacker Plan](https://repl.it/site/pricing). Without the **always on** feature, the server will sleep after 1 hour of inactivity.
+   > 📝 Note: This requires the [Replit Hacker Plan](https://repl.it/site/pricing). Without the **always on** feature, the server will sleep after 1 hour of inactivity.
 
 -----
 ###### This project is maintained by [Param Thakkar](https://www.param.me)
