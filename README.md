@@ -36,7 +36,7 @@ Endpoint: `api.1pt.co`
 }
 ```
 
-With this example 1pt.co/param will redirect to https://www.param.me
+With this example [1pt.co/param](https://www.param.me) will redirect to `https://www.param.me`
 
 ## 🛠️ Self-Host
 
