@@ -85,6 +85,8 @@ function sendRequest(longURL, shortURL) {
       }
     };
 
+    longURL = encodeURIComponent(longURL);
+
     request =
       "https://api.1pt.co/addURL?long=" +
       longURL +

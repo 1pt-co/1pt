@@ -1,4 +1,5 @@
 from flask import Flask, Response, request
+from urllib.parse import unquote
 import main
 
 app = Flask(__name__)
@@ -16,7 +17,7 @@ def status():
 @app.route('/addURL', methods=['GET'])
 def add_URL():
   short = request.args.get("short")
-  long = request.args.get("long")
+  long = unquote(request.args.get("long"))
   ip = request.headers.get('X-Forwarded-For')
 
   if(long == None):
