@@ -13,8 +13,6 @@ def status():
   response.headers['Access-Control-Allow-Origin'] = '*'
   return response
 
-
-
 @app.route('/addURL', methods=['GET'])
 def add_URL():
   short = request.args.get("short")
@@ -33,6 +31,17 @@ def get_URL():
   short_url = request.args.get("url")
 
   return(main.get_row(short_url))
+
+@app.route('/getInfo', methods=['GET'])
+def get_info():
+  short_url = request.args.get("url")
+
+  if(short_url == None):
+    response = Response("{'status': '400', 'message': 'Bad request. Read the documentation at 1pt.co/api'}", status=400, mimetype="application/json")
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
+  return(main.get_info(short_url))
 
 @app.route('/', defaults={'u_path': ''})
 @app.route('/<path:u_path>')

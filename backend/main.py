@@ -71,6 +71,19 @@ def get_row(short_url):
   response.headers['Access-Control-Allow-Origin'] = '*'
   return response
 
+def get_info(short_url):
+  data = datasheet.get_all_values()
+
+  for row in data:
+    if(row[3].lower() == short_url):
+      response = Response(json.dumps({"status": 200, "short": row[3], "long": row[4], "date": row[1], "hits": int(row[2])}), status=301, mimetype="application/json")
+      response.headers['Access-Control-Allow-Origin'] = '*'
+      return response
+
+  response = Response(json.dumps({"status": 404, "message": "URL doesn't exist!"}), status=404, mimetype="application/json")
+  response.headers['Access-Control-Allow-Origin'] = '*'
+  return response
+
 def _generate_random(length):
   letters = string.ascii_lowercase
   return("".join(random.choice(letters) for i in range(length)))
