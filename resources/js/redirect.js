@@ -1,6 +1,7 @@
 window.onload = function () {
   var url = window.location.href.split("1pt.co/")[1].toLowerCase();
   url = url.split("?")[0]; // Remove URL parameters
+  url = url.replace("/", ""); // Remove trailing slashes
 
   function redirectToLongUrl(url) {
     if (url.includes("https://") || url.includes("http://")) {
