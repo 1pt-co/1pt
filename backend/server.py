@@ -49,6 +49,10 @@ def get_info():
 
   return(main.get_info(short_url))
 
+@app.route('/getStats', methods=['GET'])
+def get_stats():
+  return(main.get_stats())
+
 @app.route('/', defaults={'u_path': ''})
 @app.route('/<path:u_path>')
 def catch_all(u_path):

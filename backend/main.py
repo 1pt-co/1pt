@@ -84,6 +84,15 @@ def get_info(short_url):
   response.headers['Access-Control-Allow-Origin'] = '*'
   return response
 
+def get_stats():
+  stats_sheet = gc.open(config.spreadsheet).worksheet("stats")
+  visits = int(stats_sheet.cell(2, 3).value)
+  links = int(stats_sheet.cell(3, 3).value)
+
+  response = Response(json.dumps({"status": 200, "total_links": links, "total_visits": visits}), status=200, mimetype="application/json")
+  response.headers['Access-Control-Allow-Origin'] = '*'
+  return response
+
 def _generate_random(length):
   letters = string.ascii_lowercase
   return("".join(random.choice(letters) for i in range(length)))
