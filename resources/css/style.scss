@@ -98,6 +98,20 @@ input[type="button"]:disabled {
   float: right;
 }
 
+#footer {
+  position: absolute;
+  bottom: 10px;
+
+  a {
+    color: white;
+    transition: color 0.2s;
+  }
+
+  a:hover {
+    color: #2baaff;
+  }
+}
+
 .options {
   display: none;
   width: 1200px;
