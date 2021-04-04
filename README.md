@@ -38,6 +38,9 @@ Endpoint: `api.1pt.co`
 
 With this example [1pt.co/param](https://www.param.me) will redirect to `https://www.param.me`
 
+## 🛈 info.1pt.co
+Check out [1pt-co/info.1pt.co](https://github.com/1pt-co/info.1pt.co)
+
 ## 🛠️ Self-Host
 
 Self-hosting an instance of 1pt requires setting up the Flask server and the Google Sheets API
