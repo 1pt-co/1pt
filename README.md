@@ -18,7 +18,7 @@ Endpoint: `api.1pt.co`
 
 ### `/addURL`
 
-#### Method: `GET`
+**Method: `GET`**
 
 | Parameter | Description | Example |
 | --------- | ----------- | ------- |
