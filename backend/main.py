@@ -8,6 +8,7 @@ from flask import Response
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import validators
+from pysafebrowsing import SafeBrowsing
 
 import config
 import credentials
@@ -15,8 +16,7 @@ import credentials
 # Authorize Google Sheets
 try:
 	scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-	credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials.credentials(), scope)
-	gc = gspread.authorize(credentials)
+	gc = gspread.authorize(ServiceAccountCredentials.from_json_keyfile_dict(credentials.credentials(), scope))
 except OSError:
 	print("JSON file with Google account credentials not found!")
 	exit(1)
@@ -76,7 +76,12 @@ def get_info(short_url):
 
   for row in data:
     if(row[3].lower() == short_url):
-      response = Response(json.dumps({"status": 200, "short": row[3], "long": row[4], "date": row[1], "hits": int(row[2])}), status=301, mimetype="application/json")
+      s = SafeBrowsing(credentials.safe_browsing_api_key())
+      r = s.lookup_urls([row[4]])
+
+      malicious = r[row[4]]["malicious"]
+
+      response = Response(json.dumps({"status": 200, "short": row[3], "long": row[4], "date": row[1], "hits": int(row[2]), "malicious": malicious}), status=301, mimetype="application/json")
       response.headers['Access-Control-Allow-Origin'] = '*'
       return response
 

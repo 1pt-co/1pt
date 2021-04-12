@@ -15,3 +15,6 @@ def credentials():
     }
 
   return keys
+
+def safe_browsing_api_key():
+  return os.environ.get("SAFE_BROWSING_API_KEY")
