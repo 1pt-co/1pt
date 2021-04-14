@@ -1,4 +1,5 @@
 from flask import Flask, Response, request
+from requests import get
 from urllib.parse import unquote
 import main
 
@@ -52,6 +53,13 @@ def get_info():
 @app.route('/getStats', methods=['GET'])
 def get_stats():
   return(main.get_stats())
+
+@app.route('/proxy', methods=['GET'])
+def proxy():
+  if(request.args.get("url") == None):
+    return Response("{'status': '400', 'message': 'Bad request.'}", status=400, mimetype="application/json")
+  site = request.args.get("url")
+  return get(site).content
 
 @app.route('/', defaults={'u_path': ''})
 @app.route('/<path:u_path>')
