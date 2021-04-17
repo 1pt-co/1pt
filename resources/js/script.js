@@ -48,7 +48,11 @@ function showOptions() {
 }
 
 // Display QR code and the shortened URL
-function displayOutput(shortURL) {
+function displayOutput(shortURL, showWarning) {
+  if (showWarning) {
+    showToast("Your requested URL was not available");
+  }
+
   qrCode = document.getElementById("qr-code");
   output = document.getElementById("output");
   outputWrapper = document.getElementById("output-wrapper");
@@ -80,8 +84,8 @@ function sendRequest(longURL, shortURL) {
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 201) {
         data = JSON.parse(this.responseText);
-        shortURL = "1pt.co/" + data.short;
-        displayOutput(shortURL);
+        returnedShortURL = "1pt.co/" + data.short;
+        displayOutput(returnedShortURL, data.short !== shortURL);
       }
     };
 
@@ -115,6 +119,15 @@ const showPopup = (type, title, description) => {
     text: description,
     icon: type,
     confirmButtonText: "OK",
+  });
+};
+
+const showToast = (description) => {
+  Swal.fire({
+    text: description,
+    icon: "info",
+    toast: true,
+    position: "bottom",
   });
 };
 
