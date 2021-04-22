@@ -85,7 +85,10 @@ function sendRequest(longURL, shortURL) {
       if (this.readyState == 4 && this.status == 201) {
         data = JSON.parse(this.responseText);
         returnedShortURL = "1pt.co/" + data.short;
-        displayOutput(returnedShortURL, data.short !== shortURL);
+        displayOutput(
+          returnedShortURL,
+          shortURL !== "" && data.short !== shortURL
+        );
       }
     };
 
