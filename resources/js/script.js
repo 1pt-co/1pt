@@ -81,6 +81,8 @@ function displayOutput(shortURL, showWarning) {
 function sendRequest(longURL, shortURL) {
   if (validateURL(longURL)) {
     document.getElementById("loading").style.display = "flex";
+    submit.disabled = true;
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 201) {
