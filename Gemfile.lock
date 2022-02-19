@@ -7,7 +7,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     coffee-script (2.4.1)
       coffee-script-source
@@ -25,6 +25,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     ethon (0.13.0)
       ffi (>= 1.15.0)
+    eventmachine (1.2.7)
     eventmachine (1.2.7-x64-mingw32)
     excon (0.80.1)
     execjs (2.7.0)
@@ -39,6 +40,7 @@ GEM
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.0.3)
       net-http-persistent (>= 3.1)
+    ffi (1.15.0)
     ffi (1.15.0-x64-mingw32)
     forwardable-extended (2.6.0)
     gemoji (3.0.1)
@@ -223,6 +225,8 @@ GEM
       connection_pool (~> 2.2)
     nokogiri (1.11.3-x64-mingw32)
       racc (~> 1.4)
+    nokogiri (1.11.3-x86_64-linux)
+      racc (~> 1.4)
     octokit (4.20.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -259,12 +263,14 @@ GEM
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
+    unf_ext (0.0.7.7)
     unf_ext (0.0.7.7-x64-mingw32)
     unicode-display_width (1.7.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
   x64-mingw32
+  x86_64-linux
 
 DEPENDENCIES
   github-pages
