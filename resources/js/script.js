@@ -80,9 +80,11 @@ function displayOutput(shortURL, showWarning) {
 // Return short URL given a long URL
 function sendRequest(longURL, shortURL) {
   if (validateURL(longURL)) {
+    document.getElementById("loading").style.display = "flex";
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 201) {
+        document.getElementById("loading").style.display = "none";
         data = JSON.parse(this.responseText);
         returnedShortURL = "1pt.co/" + data.short;
         displayOutput(

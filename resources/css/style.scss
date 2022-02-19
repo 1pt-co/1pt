@@ -240,6 +240,27 @@ input[type="button"]:disabled {
   opacity: 1;
 }
 
+#loading {
+  display: none;
+}
+
+.loader {
+  content: "";
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin: auto;
+  box-sizing: border-box;
+  border-left: 0.5rem solid $primary-color;
+  border-top: 0.5rem solid $primary-color;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg) }
+}
+
 @media only screen and (max-width: 1250px) {
   #main,
   #top {
