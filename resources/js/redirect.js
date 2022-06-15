@@ -23,6 +23,6 @@ window.onload = function () {
       document.getElementById("loading").style.display = "none";
     }
   };
-  xhttp.open("GET", "https://api.1pt.co/getURL?url=" + url, true);
+  xhttp.open("GET", "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/retrieve-url-from-db.php?url=" + url, true);
   xhttp.send();
 };

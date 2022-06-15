@@ -99,9 +99,9 @@ function sendRequest(longURL, shortURL) {
     longURL = encodeURIComponent(longURL);
 
     request =
-      "https://api.1pt.co/addURL?long=" +
+      "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" +
       longURL +
-      "&short=" +
+      "&cu=" +
       encodeURI(shortURL);
     xhttp.open("GET", request, true);
     xhttp.send();
