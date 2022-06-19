@@ -99,7 +99,7 @@ function sendRequest(longURL, shortURL) {
     longURL = encodeURIComponent(longURL);
 
     request =
-      "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/add-url-to-db.php?url=" +
+      "https://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/addURL?url=" +
       longURL +
       "&cu=" +
       encodeURI(shortURL);
