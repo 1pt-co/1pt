@@ -163,7 +163,7 @@ const remove = (baseString, toRemove) => {
 // Copy value (in URL form) to clipboard
 const copyToClipboard = (value) => {
   var temp = document.createElement("textarea");
-  temp.value = "https://" + value;
+  temp.value = "http://" + value;
   document.body.appendChild(temp);
   temp.select();
   document.execCommand("copy");
