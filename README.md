@@ -8,7 +8,7 @@
 
 # Backend
 
-The API runs on a Flask server [hosted on replit](https://repl.it/@paramt/1ptco-API).
+The redirects are stored in a MySQL Database and the [API is written in PHP](https://github.com/1pt-co/api.1pt.co)
 
 ## 🖥️ API
 
