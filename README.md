@@ -14,7 +14,7 @@ The API runs on a Flask server [hosted on replit](https://repl.it/@paramt/1ptco-
 
 The 1pt.co API is public so anyone can create a shortened URL
 
-Endpoint: `api.1pt.co`
+Endpoint: `http://thakdees.dev.fast.sheridanc.on.ca/1pt/`
 
 ### `/addURL`
 
@@ -22,8 +22,8 @@ Endpoint: `api.1pt.co`
 
 | Parameter | Description | Example |
 | --------- | ----------- | ------- |
-| `long` | **Required** - The long URL to shorten | `https://www.param.me` |
-| `short` | **Optional** - The part after `1pt.co/` that will redirect to your long URL. If this paramter is not provided or the requested short URL is already taken, it will return a random 5-letter string | `param` |
+| `url` | **Required** - The long URL to shorten | `https://www.param.me` |
+| `cu` | **Optional** - The part after `1pt.co/` that will redirect to your long URL. If this paramter is not provided or the requested short URL is already taken, it will return a random 5-letter string | `param` |
 
 #### Example Response
 
