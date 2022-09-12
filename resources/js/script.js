@@ -99,7 +99,7 @@ function sendRequest(longURL, shortURL) {
     longURL = encodeURIComponent(longURL);
 
     request =
-      "http://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/addURL.php?url=" +
+      "https://thakdees.dev.fast.sheridanc.on.ca/pme/1pt/addURL.php?url=" +
       longURL +
       "&cu=" +
       encodeURI(shortURL);
@@ -163,7 +163,7 @@ const remove = (baseString, toRemove) => {
 // Copy value (in URL form) to clipboard
 const copyToClipboard = (value) => {
   var temp = document.createElement("textarea");
-  temp.value = "http://" + value;
+  temp.value = "https://" + value;
   document.body.appendChild(temp);
   temp.select();
   document.execCommand("copy");

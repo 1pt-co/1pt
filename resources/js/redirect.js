@@ -23,6 +23,6 @@ window.onload = function () {
       document.getElementById("loading").style.display = "none";
     }
   };
-  xhttp.open("GET", "http://thakkaha.dev.fast.sheridanc.on.ca/pme/1pt/getURL.php?url=" + url, true);
+  xhttp.open("GET", "https://thakdees.dev.fast.sheridanc.on.ca/pme/1pt/getURL.php?url=" + url, true);
   xhttp.send();
 };
