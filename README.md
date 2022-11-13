@@ -14,7 +14,7 @@ The redirects are stored in a MySQL Database and the [API is written in PHP](htt
 
 The 1pt.co API is public so anyone can create a shortened URL
 
-Endpoint: `http://thakdees.dev.fast.sheridanc.on.ca/1pt/`
+Endpoint: `https://csclub.uwaterloo.ca/~phthakka/1pt/`
 
 ### `/addURL`
 
