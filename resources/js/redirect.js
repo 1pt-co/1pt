@@ -23,6 +23,6 @@ window.onload = function () {
       document.getElementById("loading").style.display = "none";
     }
   };
-  xhttp.open("GET", "https://thakdees.dev.fast.sheridanc.on.ca/1pt/getURL.php?url=" + url, true);
+  xhttp.open("GET", "https://csclub.uwaterloo.ca/~phthakka/1pt/getURL.php?url=" + url, true);
   xhttp.send();
 };
