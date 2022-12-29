@@ -4,7 +4,13 @@
 
 [![Screenshot](resources/assets/screenshot.png)](https://1pt.co)
 
-**1pt** is a simple-to-use URL shortening service.
+# Impact
+**1pt** is a URL shortening service and hosts over **15,000+** redirects with **200,000+** visits
+
+# 🛈 info.1pt.co
+One of the biggest concerns that come with URL shortening is the fact that anyone can hide or mask their URL. Users can create shortened URLs that point to malicious or inappropriate sites, and the person receiving that URL won't realize it until they've clicked it and already been redirected to the harmful website. With this feature, however, anyone will be able to prepend info. to any 1pt.co URL to see the URL metadata before being redirected.
+
+Check out [1pt-co/info.1pt.co](https://github.com/1pt-co/info.1pt.co)
 
 # Backend
 
@@ -38,10 +44,6 @@ Endpoint: `https://csclub.uwaterloo.ca/~phthakka/1pt/`
 
 With this example [1pt.co/param](https://www.param.me) will redirect to `https://www.param.me`
 
-## 🛈 info.1pt.co
-One of the biggest concerns that come with URL shortening is the fact that anyone can hide or mask their URL. Users can create shortened URLs that point to malicious or inappropriate sites, and the person receiving that URL won't realize it until they've clicked it and already been redirected to the harmful website. With this feature, however, anyone will be able to prepend info. to any 1pt.co URL to see the URL metadata before being redirected.
-
-Check out [1pt-co/info.1pt.co](https://github.com/1pt-co/info.1pt.co)
 
 -----
 ###### This project is maintained by [Param Thakkar](https://www.param.me)
