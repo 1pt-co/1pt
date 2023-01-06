@@ -182,15 +182,9 @@ input[type="button"]:disabled {
       border-radius: $round-edges 0 0 $round-edges;
       width: 200px;
       text-align: center;
-      visibility: hidden;
-    }
-
-    #qr-code {
-      visibility: hidden;
     }
 
     #copy-wrapper {
-      visibility: hidden;
       float: right;
     }
 

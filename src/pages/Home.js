@@ -10,9 +10,13 @@ class Home extends React.Component {
         super(props);
         this.state = { 
             longURL: "",
+            returnedShort: "",
             showOptions: false,
             disableSubmit: false,
             showLoader: false,
+            qrCode: "",
+            qrVisible: false,
+            outputVisible: false,
          }
     }
 
@@ -51,7 +55,33 @@ class Home extends React.Component {
              }
         })
         .then(response => {
-            console.log(response)
+            this.setState({
+                showLoader: false,
+            })
+
+            const returnedShort = response.data.short;
+
+            if (short != "" && returnedShort != short) {
+                Swal.fire({
+                    text: "Your requested URL was not available",
+                    icon: "info",
+                    toast: true,
+                    position: "bottom",
+                  });
+            } 
+
+            this.setState({
+                returnedShort: `1pt.co/${returnedShort}`,
+                outputVisible: true,
+                qrCode: `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://1pt.co/${returnedShort}`
+            })
+
+            this.onQrLoad = () => {
+                this.setState({
+                    qrVisible: true,
+                })
+            }
+
         })
     }
 
@@ -74,6 +104,12 @@ class Home extends React.Component {
                     hide={!this.state.showOptions} 
                     onSubmit={this.shorten}
                     disableSubmit={this.state.disableSubmit}
+                    showLoader={this.state.showLoader}
+                    qrCode={this.state.qrCode}
+                    qrVisible={this.state.qrVisible}
+                    onQrLoad={this.onQrLoad}
+                    returnedShort={this.state.returnedShort}
+                    outputVisible={this.state.outputVisible}
                 />
             </div>
 
