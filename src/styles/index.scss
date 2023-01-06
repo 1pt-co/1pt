@@ -78,6 +78,7 @@ input[type="button"] {
 
 input[type="button"]:disabled {
   background-color: #424247;
+  cursor: default;
 }
 
 #url {
