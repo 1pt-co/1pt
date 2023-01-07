@@ -25,6 +25,10 @@ const OptionsForm = React.forwardRef((props, ref) => {
     const keyEvent = e => {
         if (e.key === "Enter") props.onSubmit(shortURL)
     }
+
+    const focusInput = () => {
+        ref.current.focus();
+    }
     
     return (
         <div id="options" className="options" style={{display: display}}>
@@ -45,7 +49,7 @@ const OptionsForm = React.forwardRef((props, ref) => {
                     <h3>Custom URL</h3>
                     Leave blank for a random URL
                     <div id="custom-url">
-                        <span className="prefix">1pt.co/</span>
+                        <span className="prefix" onClick={focusInput}>1pt.co/</span>
                         <input 
                             type="text" 
                             value={shortURL} 
