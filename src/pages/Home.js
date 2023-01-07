@@ -80,7 +80,8 @@ class Home extends React.Component {
                     icon: "info",
                     toast: true,
                     position: "bottom",
-                    confirmButtonColor: "#4d4e7a",
+                    iconColor: "#4d4e7a",
+                    showConfirmButton: false
                   });
             } 
 
