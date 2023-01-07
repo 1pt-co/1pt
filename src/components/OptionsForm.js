@@ -96,6 +96,7 @@ const showPopup = (type, title, description) => {
         text: description,
         icon: type,
         confirmButtonText: "OK",
+        confirmButtonColor: "#4d4e7a",
     });
 };
 
