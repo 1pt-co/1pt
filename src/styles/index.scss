@@ -126,11 +126,10 @@ input[type="button"]:disabled {
 
       .info-btn {
         cursor: pointer;
-        color: white;
-        transition: color 0.2s;
+        transition: filter 0.1s;
 
         &:hover {
-          color: #abaeff;
+          filter: opacity(0.8)
         }
       }
 

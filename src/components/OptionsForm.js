@@ -1,5 +1,6 @@
 import React, {useState } from "react";
 import Swal from "sweetalert2"
+import infoButton from "../info.svg";
 
 const OptionsForm = React.forwardRef((props, ref) => {
     const [shortURL, setShortURL] = useState("");
@@ -38,8 +39,8 @@ const OptionsForm = React.forwardRef((props, ref) => {
                     <a
                         className="info-btn"
                         onClick={showInfo}
-                    >?
-                        <i className="fas fa-question-circle help"></i>
+                    >
+                        <img src={infoButton} className="help"/>
                     </a>
                 </h2>
             </div>
