@@ -163,11 +163,33 @@ input[type="button"]:disabled {
       }
 
       input {
-        margin: 5px 0 25px;
+        margin: 10px 0;
         font-size: 20px;
         border: 1px solid $primary-color;
         width: 100%;
         box-sizing: border-box;
+      }
+
+      #custom-url {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #custom-url span {
+        font-size: 20px;
+        color: $primary-color;
+        padding: 10px 3px;
+        box-sizing: border-box;
+        // background-color: #ccc;
+        font-family: "Open Sans"
+      }
+
+      #custom-url input {
+        font-size: 20px;
+        border-color:  $primary-color;
+        border-style: solid;
       }
     }
 

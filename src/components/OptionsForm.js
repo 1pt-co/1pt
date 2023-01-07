@@ -40,7 +40,10 @@ function OptionsForm(props) {
                 <div className="options-left">
                     <h3>Custom URL</h3>
                     Leave blank for a random URL
-                    <input type="text" id="custom-url" value={shortURL} onChange={e => setShortURL(e.target.value)}/>
+                    <div id="custom-url">
+                        <span className="prefix">1pt.co/</span>
+                        <input type="text" value={shortURL} onChange={e => setShortURL(e.target.value)}/>
+                    </div>
                     <br />
                     <input 
                         type="button" 
@@ -75,6 +78,7 @@ function OptionsForm(props) {
                 <div id="qr-code-wrapper">
                     <img 
                         id="qr-code" 
+                        alt="QR Code"
                         src={props.qrCode} 
                         onLoad={props.onQrLoad}
                         style={{visibility: qrVisibility}}
