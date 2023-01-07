@@ -1,6 +1,9 @@
 function LongURL(props) {
     const inputStyle = props.disabled ? { width: "100%", borderRadius: "10px" } : {}
     const buttonStyle = props.disabled ? { display: "none" } : {}
+    const keyEvent = e => {
+        if (e.key === "Enter") props.showOptions()
+    }
 
     return (
         <div className="input-box">
@@ -10,6 +13,7 @@ function LongURL(props) {
                 placeholder="paste long url here"
                 value={props.value}
                 onChange={props.onChange}
+                onKeyUp={keyEvent}
                 disabled={props.disabled}
                 autoFocus
                 autoComplete="off"
