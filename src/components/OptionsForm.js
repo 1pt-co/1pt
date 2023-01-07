@@ -21,6 +21,10 @@ const OptionsForm = React.forwardRef((props, ref) => {
         document.body.removeChild(temp);
         setTooltiptext("Copied!");
     }
+
+    const keyEvent = e => {
+        if (e.key === "Enter") props.onSubmit(shortURL)
+    }
     
     return (
         <div id="options" className="options" style={{display: display}}>
@@ -47,7 +51,7 @@ const OptionsForm = React.forwardRef((props, ref) => {
                             value={shortURL} 
                             onChange={e => setShortURL(e.target.value)}
                             ref={ref}
-                            id="111"
+                            onKeyUp={keyEvent}
                         />
                     </div>
                     <br />
