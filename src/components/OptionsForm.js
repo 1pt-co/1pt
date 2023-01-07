@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, {useState } from "react";
 import Swal from "sweetalert2"
 
-function OptionsForm(props) {
+const OptionsForm = React.forwardRef((props, ref) => {
     const [shortURL, setShortURL] = useState("");
     const [tooltiptext, setTooltiptext] = useState("Copy to clipboard");
 
@@ -29,8 +29,8 @@ function OptionsForm(props) {
                     OPTIONS
                     <a
                         className="info-btn"
-                        onClick={() => { showPopup('info', 'Options', 'You can customize your URL here'); return false; }}
-                    >
+                        onClick={showInfo}
+                    >?
                         <i className="fas fa-question-circle help"></i>
                     </a>
                 </h2>
@@ -42,7 +42,13 @@ function OptionsForm(props) {
                     Leave blank for a random URL
                     <div id="custom-url">
                         <span className="prefix">1pt.co/</span>
-                        <input type="text" value={shortURL} onChange={e => setShortURL(e.target.value)}/>
+                        <input 
+                            type="text" 
+                            value={shortURL} 
+                            onChange={e => setShortURL(e.target.value)}
+                            ref={ref}
+                            id="111"
+                        />
                     </div>
                     <br />
                     <input 
@@ -88,15 +94,18 @@ function OptionsForm(props) {
             </div>
         </div>
     )
-}
+})
 
-const showPopup = (type, title, description) => {
+const showInfo = e => {
+    e.preventDefault()
+
     Swal.fire({
-        title: title,
-        text: description,
-        icon: type,
+        title: "Options",
+        text: "You can customize your URL here",
+        icon: "info",
         confirmButtonText: "OK",
         confirmButtonColor: "#4d4e7a",
+        iconColor: "#4d4e7a",
     });
 };
 

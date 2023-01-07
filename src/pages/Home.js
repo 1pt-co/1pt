@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef } from "react";
 import Swal from "sweetalert2"
 import axios from "axios";
 import LongURL from "../components/LongURL";
@@ -8,6 +8,8 @@ import config from "../config";
 class Home extends React.Component {
     constructor(props) {
         super(props);
+        this.shortURLInput = createRef();
+
         this.state = { 
             tagline: getTagline(),
             longURL: "",
@@ -27,7 +29,11 @@ class Home extends React.Component {
 
     showOptions = () => {
         if (this.state.longURL !== "" && validateURL(this.state.longURL)) {
-            this.setState({ showOptions: true })
+            this.setState({ showOptions: true }, () => {
+                // focus next input box after state has finished updating
+                this.shortURLInput.current.focus({ preventScroll: true })
+            })
+
         } else {
             Swal.fire({
                 title: "Invalid URL!",
@@ -118,6 +124,7 @@ class Home extends React.Component {
                     onQrLoad={this.onQrLoad}
                     returnedShort={this.state.returnedShort}
                     outputVisible={this.state.outputVisible}
+                    ref={this.shortURLInput}
                 />
             </div>
 
