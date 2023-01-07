@@ -21,7 +21,7 @@ class Home extends React.Component {
     }
 
     showOptions = () => {
-        if (this.state.longURL != "" && validateURL(this.state.longURL)) {
+        if (this.state.longURL !== "" && validateURL(this.state.longURL)) {
             this.setState({ showOptions: true })
         } else {
             Swal.fire({
@@ -61,7 +61,7 @@ class Home extends React.Component {
 
             const returnedShort = response.data.short;
 
-            if (short != "" && returnedShort != short) {
+            if (short !== "" && returnedShort !== short) {
                 Swal.fire({
                     text: "Your requested URL was not available",
                     icon: "info",
