@@ -35,10 +35,6 @@ h1 {
 
   span {
     font-weight: 400;
-
-    &::after {
-      content: "| Dynamic URL shortener";
-    }
   }
 }
 
@@ -337,10 +333,6 @@ input[type="button"]:disabled {
   #url {
     width: calc(100% - 100px);
   }
-
-  h1 span::after {
-    content: "| URL shortener";
-  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -359,10 +351,6 @@ input[type="button"]:disabled {
 }
 
 @media only screen and (max-width: 600px) {
-  h1 span::after {
-    content: none;
-  }
-
   input[type="text"],
   input[type="button"],
   .options #body .options-left input {

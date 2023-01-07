@@ -9,6 +9,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
+            tagline: getTagline(),
             longURL: "",
             returnedShort: "",
             showOptions: false,
@@ -17,7 +18,11 @@ class Home extends React.Component {
             qrCode: "",
             qrVisible: false,
             outputVisible: false,
-         }
+        }
+
+        window.addEventListener("resize", () => {
+            this.setState({tagline: getTagline()})
+        })
     }
 
     showOptions = () => {
@@ -91,7 +96,7 @@ class Home extends React.Component {
         return (
             <div id="main">
                 <div id="top" style={mainStyle}>
-                    <h1>1 Point <span></span></h1>
+                    <h1>1 Point <span>{this.state.tagline}</span></h1>
                     <LongURL
                         value={this.state.longURL}
                         onChange={e => this.setState({ longURL: e.target.value })}
@@ -134,6 +139,14 @@ const addURL = axios.create({
     }
 })
 
-
+function getTagline() {
+    if (window.innerWidth > 900) {
+        return "| Dynamic URL Shortener"
+    } else if (window.innerWidth > 600) {
+        return "| URL Shortener"
+    } else {
+        return ""
+    }
+}
 
 export default Home;
