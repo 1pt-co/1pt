@@ -1,10 +1,8 @@
-import { redirect, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import config from "../config.js";
 
 export default function Redirect() {
-    let redirectLink;
-    const navigate = useNavigate();
     const { shortLink } = useParams();
 
     const getURL = axios.create({
