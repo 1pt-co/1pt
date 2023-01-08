@@ -1,0 +1,2 @@
+# prevent netlify from serving its 404 page by redirecting any path to the index
+/* /index.html 200
