@@ -21,14 +21,12 @@ export default function Redirect() {
         window.location.replace("/404");
     })
 
-    // axios.get(`${config.apiEndpoint}/getURL?url=${redirect}`).then(response => {
-    //     console.log(response);
-    // })
-
     return (
-        <div id="loading">
-            <div className="loader"></div>
-            <p>Redirecting...</p>
+        <div className="redirect">
+            <div id="loading">
+                <div className="loader"></div>
+                <p>Redirecting...</p>
+            </div>
         </div>
     );
 }
