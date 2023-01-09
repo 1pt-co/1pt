@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    background-color: #171721;
+    height: 90px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    margin: 0;
+    padding: 0 0 0 200px;
+}
+
+.header .align {
+    display: flex;
+    align-items: center;
+}
+
+.header a {
+    display: block;
+    background-color: transparent;
+    color: white;
+    border-radius: 0;
+    font-size: 25px;
+    font-weight: 6500;
+    margin: 0 10px;
+}
+
+.header a:hover {
+    color: #ddd;
+}
+
+.signin {
+    display: flex;
+    align-items: center;
+    float: right;
+    height: 90px;
+    position: fixed;
+    right: 40px;
+}

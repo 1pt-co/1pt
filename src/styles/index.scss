@@ -16,6 +16,10 @@ textarea {
   opacity: 0;
 }
 
+#root {
+  height: 100vh;
+}
+
 #main {
   display: flex;
   flex-direction: column;
@@ -24,8 +28,8 @@ textarea {
 
   #top {
     @extend #main;
-
-    height: 100vh;
+    height: calc(100vh - 90px);
+    margin-top: 90px;
     transition: height $animation-duration;
   }
 }

@@ -3,6 +3,7 @@ import Swal from "sweetalert2"
 import axios from "axios";
 import LongURL from "../components/LongURL";
 import OptionsForm from "../components/OptionsForm";
+import Header from "../components/Header";
 import config from "../config";
 
 class Home extends React.Component {
@@ -104,31 +105,32 @@ class Home extends React.Component {
         const mainStyle = this.state.showOptions ? { height: "300px" } : {}
 
         return (
-            <div id="main">
-                <div id="top" style={mainStyle}>
-                    <h1>1 Point <span>{this.state.tagline}</span></h1>
-                    <LongURL
-                        value={this.state.longURL}
-                        onChange={e => this.setState({ longURL: e.target.value })}
-                        disabled={this.state.showOptions}
-                        showOptions={this.showOptions}
+                
+                <div id="main">
+                    <Header />
+                    <div id="top" style={mainStyle}>
+                        <h1>1 Point <span>{this.state.tagline}</span></h1>
+                        <LongURL
+                            value={this.state.longURL}
+                            onChange={e => this.setState({ longURL: e.target.value })}
+                            disabled={this.state.showOptions}
+                            showOptions={this.showOptions}
+                        />
+                    </div>
+
+                    <OptionsForm 
+                        hide={!this.state.showOptions} 
+                        onSubmit={this.shorten}
+                        disableSubmit={this.state.disableSubmit}
+                        showLoader={this.state.showLoader}
+                        qrCode={this.state.qrCode}
+                        qrVisible={this.state.qrVisible}
+                        onQrLoad={this.onQrLoad}
+                        returnedShort={this.state.returnedShort}
+                        outputVisible={this.state.outputVisible}
+                        ref={this.shortURLInput}
                     />
                 </div>
-
-                <OptionsForm 
-                    hide={!this.state.showOptions} 
-                    onSubmit={this.shorten}
-                    disableSubmit={this.state.disableSubmit}
-                    showLoader={this.state.showLoader}
-                    qrCode={this.state.qrCode}
-                    qrVisible={this.state.qrVisible}
-                    onQrLoad={this.onQrLoad}
-                    returnedShort={this.state.returnedShort}
-                    outputVisible={this.state.outputVisible}
-                    ref={this.shortURLInput}
-                />
-            </div>
-
         )
     }
 }
