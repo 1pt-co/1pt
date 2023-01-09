@@ -21,11 +21,16 @@ class Home extends React.Component {
             qrCode: "",
             qrVisible: false,
             outputVisible: false,
+            token: false,
         }
 
         window.addEventListener("resize", () => {
             this.setState({tagline: getTagline()})
         })
+    }
+
+    updateToken = token => {
+        this.setState({ token: token })
     }
 
     showOptions = () => {
@@ -61,12 +66,17 @@ class Home extends React.Component {
             disableSubmit: true, 
             showLoader: true,
         });
+
+        const auth = this.state.token ? 
+                    { Authorization: `Bearer ${this.state?.token}` } :
+                    {};
     
         addURL({
             params: { 
                 long: this.state.longURL,
                 short: short,
-             }
+            },
+            headers: auth
         })
         .then(response => {
             this.setState({
@@ -107,7 +117,7 @@ class Home extends React.Component {
         return (
                 
                 <div id="main">
-                    <Header />
+                    <Header onSignin={this.updateToken} />
                     <div id="top" style={mainStyle}>
                         <h1>1 Point <span>{this.state.tagline}</span></h1>
                         <LongURL

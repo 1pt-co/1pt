@@ -10,6 +10,7 @@ function Header(props) {
 
     const login = response => {
         setUser(jwt_decode(response.credential));
+        props.onSignin(response.credential);
     }
 
     const loginError = () => {
