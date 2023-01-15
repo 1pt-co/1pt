@@ -2,7 +2,7 @@
 
 [![Uptime](https://img.shields.io/uptimerobot/ratio/m782561487-e7e43bdb0203a835e6713721.svg?style=flat-square)](https://status.param.me/782561487)
 
-[![Screenshot](resources/assets/screenshot.png)](https://1pt.co)
+[![Screenshot](public/assets/screenshot.png)](https://1pt.co)
 
 # Impact
 **1pt** is a URL shortening service and hosts over **15,000+** redirects with **200,000+** visits
@@ -10,7 +10,7 @@
 # 🛈 info.1pt.co
 One of the biggest concerns that come with URL shortening is the fact that anyone can hide or mask their URL. Users can create shortened URLs that point to malicious or inappropriate sites, and the person receiving that URL won't realize it until they've clicked it and already been redirected to the harmful website. With this feature, however, anyone will be able to prepend info. to any 1pt.co URL to see the URL metadata before being redirected.
 
-[![Screenshot](resources/assets/info-screenshot.png)](https://1pt.co)
+[![Screenshot](public/assets/info-screenshot.png)](https://1pt.co)
 
 Check out [1pt-co/info.1pt.co](https://github.com/1pt-co/info.1pt.co)
 
