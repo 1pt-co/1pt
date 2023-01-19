@@ -20,7 +20,9 @@ The redirects are stored in a MySQL Database and the [API is written in PHP](htt
 
 The 1pt.co API is public so anyone can create a shortened URL
 
-Endpoint: `https://csclub.uwaterloo.ca/~phthakka/1pt/`
+Endpoint: `https://csclub.uwaterloo.ca/~phthakka/1pt-express`
+
+> Note: the old endpoint (`csclub.uwaterloo.ca/~phthakka/1pt`) is still live but will soon be **deprecated**.
 
 ### `/addURL`
 
@@ -28,8 +30,8 @@ Endpoint: `https://csclub.uwaterloo.ca/~phthakka/1pt/`
 
 | Parameter | Description | Example |
 | --------- | ----------- | ------- |
-| `url` | **Required** - The long URL to shorten | `https://www.param.me` |
-| `cu` | **Optional** - The part after `1pt.co/` that will redirect to your long URL. If this paramter is not provided or the requested short URL is already taken, it will return a random 5-letter string | `param` |
+| `long` | **Required** - The long URL to shorten | `https://www.param.me` |
+| `short` | **Optional** - The part after `1pt.co/` that will redirect to your long URL. If this paramter is not provided or the requested short URL is already taken, it will return a random 5-letter string | `param` |
 
 #### Example Response
 
