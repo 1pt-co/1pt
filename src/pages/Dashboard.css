@@ -1,0 +1,31 @@
+.main {
+    background-color: white;
+    border-radius: 10px;
+    width: 1200px;
+    margin: auto;
+    margin-top: calc(90px + 50px);
+    overflow: hidden;
+    display: flex;
+}
+
+.rows {
+    background-color: #eee;
+    width: 300px;
+    overflow: hidden;
+}
+
+.content {
+    flex-grow: 1;
+    color: black;
+    padding: 10px 30px;
+}
+
+.content .short {
+    font-weight: 600;
+    background-color: gray;
+    width: auto;
+}
+
+h3 {
+    font-weight: 500;
+}

@@ -1,0 +1,17 @@
+.infoRow {
+    height: 100px;
+    background-color: #575780;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoRow:hover{
+    filter: opacity(0.9);
+    cursor: pointer;
+}
+
+.infoRow h2 {
+    margin: 0;
+    font-weight: 500;
+}

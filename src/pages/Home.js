@@ -5,6 +5,7 @@ import LongURL from "../components/LongURL";
 import OptionsForm from "../components/OptionsForm";
 import Header from "../components/Header";
 import config from "../config";
+import jwtDecode from "jwt-decode";
 
 class Home extends React.Component {
     constructor(props) {
@@ -22,6 +23,7 @@ class Home extends React.Component {
             qrVisible: false,
             outputVisible: false,
             token: false,
+            user: false,
         }
 
         window.addEventListener("resize", () => {
@@ -30,7 +32,14 @@ class Home extends React.Component {
     }
 
     updateToken = token => {
-        this.setState({ token: token })
+        sessionStorage.setItem("jwt", token)
+        this.setState({ token: token, user: jwtDecode(token) })
+    }
+
+    componentDidMount = () => {
+        // possible to do this in constructor - TODO
+        const jwt = sessionStorage.getItem("jwt");
+        if (jwt) this.updateToken(jwt)
     }
 
     showOptions = () => {
@@ -109,6 +118,18 @@ class Home extends React.Component {
             }
 
         })
+        .catch(err => {
+            Swal.fire({
+                title: "There was an error!",
+                text: "Try logging in again",
+                icon: "error",
+                confirmButtonText: "OK",
+                confirmButtonColor: "#4d4e7a",
+            });
+
+            sessionStorage.removeItem("jwt");
+            this.setState({token: false, user: false});
+        })
     }
 
     render() {
@@ -117,7 +138,7 @@ class Home extends React.Component {
         return (
                 
                 <div id="main">
-                    <Header onSignin={this.updateToken} />
+                    <Header onSignin={this.updateToken} user={this.state.user}/>
                     <div id="top" style={mainStyle}>
                         <h1>1 Point <span>{this.state.tagline}</span></h1>
                         <LongURL
