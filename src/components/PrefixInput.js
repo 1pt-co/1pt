@@ -5,7 +5,7 @@ function PrefixInput(props) {
             <input 
                 type="text" 
                 value={props.shortURL} 
-                onChange={e => props.setShortURL(e.target.value)}
+                onChange={e => props.setShortURL(e.target.value.replace(/\s/g, ""))}
                 ref={props.inputRef}
                 onKeyUp={props.keyEvent}
             />
