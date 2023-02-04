@@ -1,6 +1,7 @@
 import React, {useState } from "react";
 import Swal from "sweetalert2"
 import infoButton from "../info.svg";
+import PrefixInput from "./PrefixInput";
 
 const OptionsForm = React.forwardRef((props, ref) => {
     const [shortURL, setShortURL] = useState("");
@@ -49,16 +50,15 @@ const OptionsForm = React.forwardRef((props, ref) => {
                 <div className="options-left">
                     <h3>Custom URL</h3>
                     Leave blank for a random URL
-                    <div id="custom-url">
-                        <span className="prefix" onClick={focusInput}>1pt.co/</span>
-                        <input 
-                            type="text" 
-                            value={shortURL} 
-                            onChange={e => setShortURL(e.target.value)}
-                            ref={ref}
-                            onKeyUp={keyEvent}
-                        />
-                    </div>
+
+                    <PrefixInput
+                        shortURL={shortURL}
+                        setShortURL={setShortURL}
+                        inputRef={ref}
+                        keyEvent={keyEvent}
+                        focusInput={focusInput}
+                    />
+
                     <br />
                     <input 
                         type="button" 
