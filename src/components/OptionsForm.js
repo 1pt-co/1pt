@@ -57,6 +57,7 @@ const OptionsForm = React.forwardRef((props, ref) => {
                         inputRef={ref}
                         keyEvent={keyEvent}
                         focusInput={focusInput}
+                        disabled={props.disableSubmit}
                     />
 
                     <br />
