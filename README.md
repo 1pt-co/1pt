@@ -26,7 +26,7 @@ Endpoint: `https://csclub.uwaterloo.ca/~phthakka/1pt-express`
 
 ### `/addURL`
 
-**Method: `GET`**
+**Method: `POST`**
 
 | Parameter | Description | Example |
 | --------- | ----------- | ------- |
