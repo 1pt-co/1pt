@@ -22,7 +22,8 @@ The 1pt.co API is public so anyone can create a shortened URL
 
 Endpoint: `https://csclub.uwaterloo.ca/~phthakka/1pt-express`
 
-> Note: the old endpoint (`csclub.uwaterloo.ca/~phthakka/1pt`) is still live but will soon be **deprecated**.
+> [!WARNING]
+> The old endpoint (`csclub.uwaterloo.ca/~phthakka/1pt`) is still live but will soon be **deprecated**.
 
 ### `/addURL`
 
@@ -46,6 +47,8 @@ Endpoint: `https://csclub.uwaterloo.ca/~phthakka/1pt-express`
 
 With this example [1pt.co/param](https://www.param.me) will redirect to `https://www.param.me`
 
+> [!NOTE]
+> If the requested short is taken, it will return a random 5-letter string along with the flag `receivedRequestedShort: false`
 
 -----
 ###### This project is maintained by [Param Thakkar](https://www.param.me)
