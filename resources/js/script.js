@@ -99,7 +99,7 @@ function sendRequest(longURL, shortURL) {
     longURL = encodeURIComponent(longURL);
 
     request =
-      "https://csclub.uwaterloo.ca/~phthakka/1pt/addURL.php?url=" +
+      "https://thakdees.dev.fast.sheridanc.on.ca/1pt/addURL.php?url=" +
       longURL +
       "&cu=" +
       encodeURI(shortURL);
