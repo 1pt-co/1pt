@@ -99,7 +99,7 @@ function sendRequest(longURL, shortURL) {
     longURL = encodeURIComponent(longURL);
 
     request =
-      "https://thakdees.dev.fast.sheridanc.on.ca/1pt/addURL.php?url=" +
+      "https://thakkaha.dev.fast.sheridanc.on.ca/1pt/addURL.php?url=" +
       longURL +
       "&cu=" +
       encodeURI(shortURL);
@@ -170,3 +170,4 @@ const copyToClipboard = (value) => {
   document.body.removeChild(temp);
   copyTooltip.innerHTML = "Copied!";
 };
+
